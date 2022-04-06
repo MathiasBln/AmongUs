@@ -5,6 +5,18 @@ let colonne = 1;
 
 let cooldown = true;
 
+const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
+
+function playAudio(event) {
+    let start = event.key;
+    soundBuzzer.pause();
+    soundBuzzer.currentTime = 0;
+    soundBuzzer.volume = 0.1;
+    if (start == " ") {
+        soundBuzzer.play();
+        }
+    
+    }
 
 
 
@@ -73,3 +85,4 @@ function deplacement(event) {
 
 document.addEventListener('keyup', deplacement);
 document.addEventListener('keyup', pouvoir);
+document.addEventListener('keyup', playAudio);
