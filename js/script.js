@@ -1,7 +1,7 @@
 let ligne = 4;
 let colonne = 6;
 
-map = grid_cafet;
+let map = grid_cafet;
 player.style.gridColumn = colonne;
 player.style.gridRow = ligne;
 
@@ -113,6 +113,28 @@ function deplacement(event) {
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
 }
+
+
+let temps = 300;
+
+const timer = document.getElementById('timer');
+
+
+function diminuerTemps() {
+    let minutes = parseInt(temps / 60, 10)
+    let secondes = parseInt(temps % 60, 10)
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    secondes = secondes < 10 ? "0" + secondes : secondes;
+
+    timer.innerText = minutes + ":" + secondes;
+    temps = temps <= 0 ? 0 : temps - 1;
+    if (temps == 0) {
+        document.location.href="dead.html";
+    }
+}
+
+setInterval(diminuerTemps, 1000);
 
 document.addEventListener('keyup', deplacement);
 document.addEventListener('keyup', pouvoir);

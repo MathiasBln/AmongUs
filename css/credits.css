@@ -22,6 +22,9 @@ body {
     text-decoration: none;
     font-size: 40px;
     color: white;
+    border: 6mm ridge rgb(124, 105, 105);
+    padding: 20px;
+    margin-top: 70px;
 
 }
 

@@ -57,3 +57,10 @@ body {
     font-size: 20px;
     z-index: 6;
 }
+
+#timer {
+    font-size: 90px;
+    color: white;
+    text-align: center;
+    padding-top: 50px
+}
