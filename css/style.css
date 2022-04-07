@@ -12,6 +12,7 @@
 body {
     background-color: #333;
 }
+
 #grille {
     display: inline-grid;
     grid-auto-flow: dense;
@@ -21,7 +22,7 @@ body {
     position: absolute;
     margin-left: 30%;
     margin-top: 10%;
-    margin-right: 30%;
+    margin-right: 30;
 
 }
 
