@@ -1,7 +1,9 @@
+let ligne = 4;
+let colonne = 6;
 
-
-let ligne = 1;
-let colonne = 1;
+map = grid_cafet;
+player.style.gridColumn = colonne;
+player.style.gridRow = ligne;
 
 let cooldown = true;
 
@@ -18,14 +20,12 @@ function playAudio(event) {
     
     }
 
-
-
 function pouvoir(event) {
     let touche = event.key;
     if (touche == "Enter") {
         if (ligne > 1 && colonne < 12){
             ligne = ligne + 3;
-            colonne = colonne + 3;
+            colonne = colonne + 3
         }
         
     let player = document.querySelector("#player");
@@ -37,13 +37,22 @@ function pouvoir(event) {
 }
 console.log(cooldown);
 
+
 function deplacement(event) {
     let touche = event.key;
     console.log(touche);
     if (touche == "ArrowUp") {
         if (ligne > 1) {
-            ligne--;
-            console.log("haut");
+            if (map[ligne - 1][colonne] == "porte"){
+                console.log("porte");
+                ligne --
+            } else if (map[ligne - 1][colonne] != "sol") {
+                console.log("bloqué");
+            } else {
+                ligne--;
+                console.log("haut");
+            }
+            
         }
         else {
             console.log("bloqué")
@@ -51,8 +60,15 @@ function deplacement(event) {
     }
     else if (touche == "ArrowDown") {
         if (ligne < 12) {
-            ligne++;
-            console.log("bas");
+            if (map[ligne + 1][colonne] == "porte"){
+                console.log("porte")
+                ligne ++
+            } else if (map[ligne + 1][colonne] != "sol") {
+                console.log("bloqué")
+            } else {
+                ligne++;
+                console.log("bas");
+            }
         }
         else {
             console.log("bloqué");
@@ -61,8 +77,15 @@ function deplacement(event) {
     }
     else if (touche == "ArrowLeft") {
         if (colonne > 1) {
-            colonne--;
-            console.log("gauche")
+            if (map[ligne][colonne - 1] == "porte"){
+                console.log("porte")
+                colonne --
+            } else if (map[ligne][colonne - 1] != "sol") {
+                console.log("bloqué")
+            } else {
+                colonne--;
+                console.log("gauche")
+            }
         }
         else {
             console.log("bloqué");
@@ -70,8 +93,16 @@ function deplacement(event) {
     }
     else if (touche == "ArrowRight") {
         if (colonne < 12) {
-            colonne++;
-            console.log("droite")
+            if (map[ligne][colonne + 1] == "porte"){
+                console.log("porte")
+                colonne ++
+            } else if (map[ligne][colonne + 1] != "sol") {
+                console.log("bloqué")
+            } else {
+                colonne++;
+                console.log("droite")
+            }
+
         }
         else {
             console.log("bloqué");
