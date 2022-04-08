@@ -1,18 +1,19 @@
 
 // Grille de la cafétéria
 let grid_cafet = [
-    ["mur","mur","mur", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur"],
-    ["mur","mur","sol", "sol", "sol", "sol", "sol","sol", "sol", "mur", "mur", "mur"],
-    ["mur","sol","table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "mur"],
-    ["mur","sol","table", "table", "table", "sol", "sol","table", "table", "table", "sol", "mur"],
-    ["mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "mur"],
-    ["porte","sol","sol", "sol", "sol", "table", "table","sol", "sol", "sol", "sol", "porte"],
-    ["porte","sol","sol", "sol", "sol", "table", "table","sol", "sol", "sol", "sol", "porte"],
-    ["mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "mur"],
-    ["mur","sol", "table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "mur"],
-    ["mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "mur"],
-    ["mur","mur","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "mur", "mur"],
-    ["mur","mur","mur", "mur", "mur", "porte", "porte","mur", "mur", "mur", "mur", "mur"],
+    ["mur","mur","mur","mur", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur","mur"],
+    ["mur", "mur","mur","sol", "sol", "sol", "sol", "sol","sol", "sol", "mur", "mur", "mur","mur"],
+    ["mur", "mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "mur", "mur","mur"],
+    ["mur", "sol","sol","table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "mur","mur"],
+    ["mur", "sol","sol","table", "table", "sol", "sol", "sol","table", "table", "table", "sol", "sol","mur"],
+    ["mur", "sol","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "sol","mur"],
+    ["mur", "porte","sol","sol", "sol", "sol", "table", "table","sol", "sol", "sol", "sol", "porte","mur"],
+    ["mur", "porte","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "porte","mur"],
+    ["mur", "sol","sol","table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "sol","mur"],
+    ["mur", "sol","sol", "table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "sol","mur"],
+    ["mur", "mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "mur","mur"],
+    ["mur", "mur","mur","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "mur", "mur","mur"],
+    ["mur", "mur","mur","mur", "mur", "mur", "porte", "porte","mur", "mur", "mur", "mur", "mur","mur"],
 ]
 // Grille de la cenrale
 let grid_central = [

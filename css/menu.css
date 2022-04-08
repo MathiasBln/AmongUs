@@ -1,0 +1,47 @@
+@font-face {
+    font-family: AmongUS;
+    src: url(../font/In\ your\ face\,\ joffrey!.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #333;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#choices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.choice {
+    text-decoration: none;
+    color: white;
+    font-size: 100px;
+    font-family: AmongUS;
+    margin-top: 50px;
+    border: 6mm ridge rgb(124, 105, 105);
+    border-radius: 10%;
+    padding: 20px;
+}
+
+
+
+
+#box-audio {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+}
