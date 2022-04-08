@@ -1,0 +1,66 @@
+@font-face {
+    font-family: AmongUS;
+    src: url(../font/In\ your\ face\,\ joffrey!.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: AmongUs;
+}
+body {
+    background-color: #333;
+}
+
+#grille {
+    display: inline-grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(12, 64px);
+    grid-template-rows: repeat(12, 64px);
+    background-color: black;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: 10%;
+    margin-right: 30;
+
+}
+
+
+#player {
+    height: 80px;
+    z-index: 6;
+    grid-column-start: 5;
+    grid-row-start: 5;
+}
+
+#pnj {
+    height: 64px;
+    grid-column-start: 9;
+    grid-row-start: 6;
+    z-index: 6;
+}
+
+#cafet {
+    width: 770px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 30%;
+    margin-top: 10%;
+    
+}
+
+#menu {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 6;
+}
+
+#timer {
+    font-size: 90px;
+    color: white;
+    text-align: center;
+    padding-top: 50px
+}
