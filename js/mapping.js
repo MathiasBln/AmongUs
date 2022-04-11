@@ -38,13 +38,13 @@ let grid_kitchen = [
     ["mur","mur","mur","mur", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur", "mur"],
     ["mur","portedeath","sol","sol", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur", "mur"],
     ["mur","portedeath","sol","sol", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur", "mur"],
-    ["mur","portedeath", "sol","sol", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur"],
+    ["mur","sol", "sol","sol", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur", "mur"],
     ["mur","sol","sol","sol", "mur", "mur", "mur", "mur","mur", "mur", "mur", "mur", "mur", "mur"],
     ["mur","sol","sol","sol", "table", "sol", "sol", "sol","sol", "sol", "mur", "mur", "mur", "mur"],
     ["mur","sol","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "mur", "mur", "mur", "mur"],
     ["mur","sol","sol", "sol", "sol", "sol", "sol", "sol","sol", "sol", "mur", "mur", "mur", "mur"],
-    ["mur","portekitch_cafet","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "portekitch_nav", "portekitch_nav", "mur"],
-    ["mur","portekitch_cafet","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "portekitch_nav", "portekitch_nav", "mur"],
+    ["mur","portekitch_cafet","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "portenav", "portenav", "mur"],
+    ["mur","portekitch_cafet","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "portenav", "portenav", "mur"],
     ["mur","sol","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "mur", "mur", "mur"],
 ]
 // Grille de MedBay
