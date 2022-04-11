@@ -7,15 +7,15 @@
     <title>Among Us - Play</title>
 </head>
 <body>
-    <h1>Morgane</h1>
     <div id="grille">
         <a href="menu.html" id="menu">Retourner au menu</a>
+        <a target="_blank" href="howtoplay.html" id="help">Comment jouer</a>
         <img id="player" src="pics/crewmate-rouge.png" alt="pic">
         <img id="pnj" src="pics/cadavre-bleu.png" alt="pnj" >
 
     </div>
     <div id="map">
-        <img src="pics/among_us_cafet.png" alt="cafet" id="cafet">
+        <img id="mapimg" src="pics/among_us_cafet.png" alt="cafet">
 
     </div>
     <div id="timer"></div>
@@ -23,5 +23,9 @@
 
     <script src="js/mapping.js"></script>
     <script src="js/script.js"></script>
+    <div id="box-audio">
+        <audio controls autoplay hidden>
+            <source src="musics/ambiancemusic.mp3" type="audio/mpeg"> 
+        </audio>
 </body>
 </html>
