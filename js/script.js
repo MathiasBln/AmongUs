@@ -1,5 +1,5 @@
-let ligne = 4;
-let colonne = 6;
+let ligne = 5;
+let colonne = 4;
 
 let map = grid_cafet;
 player.style.gridColumn = colonne;
@@ -51,6 +51,8 @@ function deplacement(event) {
             } else {
                 ligne--;
                 console.log("haut");
+                console.log(ligne);
+                console.log(colonne);
             }
             
         }
@@ -68,6 +70,8 @@ function deplacement(event) {
             } else {
                 ligne++;
                 console.log("bas");
+                console.log(ligne);
+                console.log(colonne);
             }
         }
         else {
@@ -85,6 +89,8 @@ function deplacement(event) {
             } else {
                 colonne--;
                 console.log("gauche")
+                console.log(ligne);
+                console.log(colonne);
             }
         }
         else {
@@ -101,6 +107,8 @@ function deplacement(event) {
             } else {
                 colonne++;
                 console.log("droite")
+                console.log(ligne);
+                console.log(colonne);
             }
 
         }
