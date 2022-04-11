@@ -9,6 +9,8 @@ let cooldown = true;
 
 const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
+
+
 function playAudio(event) {
     let start = event.key;
     soundBuzzer.pause();
