@@ -1,5 +1,5 @@
-let ligne = 4;
-let colonne = 6;
+let ligne = 5;
+let colonne = 4;
 
 let map = grid_cafet;
 player.style.gridColumn = colonne;
@@ -8,6 +8,8 @@ player.style.gridRow = ligne;
 let cooldown = true;
 
 const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
+
+
 
 function playAudio(event) {
     let start = event.key;
@@ -59,15 +61,22 @@ function deplacement(event) {
     let touche = event.key;
     console.log(touche);
     if (touche == "ArrowUp") {
+        document.getElementById("player").src="pics/Walk_Left.png";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] == "porte"){
-                console.log("porte");
+            if (map[ligne - 1][colonne] == "portekitch"){
+                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
+                map = grid_kitchen;
+                ligne=11;
+                colonne=2;
+                console.log("portecuisine");
                 ligne --
             } else if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
             } else {
                 ligne--;
                 console.log("haut");
+                console.log(ligne);
+                console.log(colonne);
             }
         }
         else {
@@ -75,15 +84,18 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowDown") {
+        document.getElementById("player").src="pics/Walk_Right.png";
         if (ligne < 12) {
-            if (map[ligne + 1][colonne] == "porte"){
-                console.log("porte")
+            if (map[ligne + 1][colonne] == "portekitch"){
+                console.log("portecui")
                 ligne ++
             } else if (map[ligne + 1][colonne] != "sol") {
                 console.log("bloqué")
             } else {
                 ligne++;
                 console.log("bas");
+                console.log(ligne);
+                console.log(colonne);
             }
         }
         else {
@@ -92,8 +104,9 @@ function deplacement(event) {
         
     }
     else if (touche == "ArrowLeft") {
+        document.getElementById("player").src="pics/Walk_Left.png";
         if (colonne > 1) {
-            if (map[ligne][colonne - 1] == "porte"){
+            if (map[ligne][colonne - 1] == "portekitch"){
                 console.log("porte")
                 colonne --
             } else if (map[ligne][colonne - 1] != "sol") {
@@ -101,6 +114,8 @@ function deplacement(event) {
             } else {
                 colonne--;
                 console.log("gauche")
+                console.log(ligne);
+                console.log(colonne);
             }
         }
         else {
@@ -108,8 +123,9 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowRight") {
+        document.getElementById("player").src="pics/Walk_Right.png";
         if (colonne < 12) {
-            if (map[ligne][colonne + 1] == "porte"){
+            if (map[ligne][colonne + 1] == "portekitch"){
                 console.log("porte")
                 colonne ++
             } else if (map[ligne][colonne + 1] != "sol") {
@@ -117,6 +133,8 @@ function deplacement(event) {
             } else {
                 colonne++;
                 console.log("droite")
+                console.log(ligne);
+                console.log(colonne);
             }
 
         }
