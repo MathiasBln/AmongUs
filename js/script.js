@@ -42,9 +42,11 @@ function deplacement(event) {
     let touche = event.key;
     console.log(touche);
     if (touche == "ArrowUp") {
+        document.getElementById("player").src="pics/Walk_Left.png";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] == "porte"){
-                console.log("porte");
+            if (map[ligne - 1][colonne] == "portecui"){
+                document.getElementById("mapimg").src="pics/kitchen_map.png";
+                console.log("portecuisine");
                 ligne --
             } else if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
@@ -59,6 +61,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowDown") {
+        document.getElementById("player").src="pics/Walk_Right.png";
         if (ligne < 12) {
             if (map[ligne + 1][colonne] == "porte"){
                 console.log("porte")
@@ -76,6 +79,7 @@ function deplacement(event) {
         
     }
     else if (touche == "ArrowLeft") {
+        document.getElementById("player").src="pics/Walk_Left.png";
         if (colonne > 1) {
             if (map[ligne][colonne - 1] == "porte"){
                 console.log("porte")
@@ -92,6 +96,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowRight") {
+        document.getElementById("player").src="pics/Walk_Right.png";
         if (colonne < 12) {
             if (map[ligne][colonne + 1] == "porte"){
                 console.log("porte")
