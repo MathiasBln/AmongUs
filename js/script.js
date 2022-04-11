@@ -9,7 +9,7 @@ let cooldown = true;
 
 const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
-
+let test = false;
 
 function playAudio(event) {
     let start = event.key;
@@ -46,14 +46,7 @@ function deplacement(event) {
     if (touche == "ArrowUp") {
         document.getElementById("player").src="pics/Walk_Left.png";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] == "portekitch"){
-                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
-                map = grid_kitchen;
-                ligne=11;
-                colonne=2;
-                console.log("portecuisine");
-                ligne --
-            } else if (map[ligne - 1][colonne] != "sol") {
+            if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
             } else {
                 ligne--;
@@ -70,10 +63,7 @@ function deplacement(event) {
     else if (touche == "ArrowDown") {
         document.getElementById("player").src="pics/Walk_Right.png";
         if (ligne < 12) {
-            if (map[ligne + 1][colonne] == "portekitch"){
-                console.log("portecui")
-                ligne ++
-            } else if (map[ligne + 1][colonne] != "sol") {
+            if (map[ligne + 1][colonne] != "sol") {
                 console.log("bloqué")
             } else {
                 ligne++;
@@ -90,9 +80,20 @@ function deplacement(event) {
     else if (touche == "ArrowLeft") {
         document.getElementById("player").src="pics/Walk_Left.png";
         if (colonne > 1) {
-            if (map[ligne][colonne - 1] == "portekitch"){
-                console.log("porte")
+            if (map[ligne][colonne - 1] == "portekitch_cafet"){
+                document.getElementById("mapimg").src="pics/among_us_cafet.png";
+                map = grid_cafet;
+                ligne=6;
+                colonne=13;
                 colonne --
+            } else if (map[ligne][colonne - 1] == "portedeath") {
+                window.location.href='trap.html';
+            } else if (map[ligne][colonne - 1] == "portenav_kitch") {
+                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
+                map = grid_kitchen;
+                ligne=10;
+                colonne=10;
+                colonne ++            
             } else if (map[ligne][colonne - 1] != "sol") {
                 console.log("bloqué")
             } else {
@@ -110,8 +111,22 @@ function deplacement(event) {
         document.getElementById("player").src="pics/Walk_Right.png";
         if (colonne < 12) {
             if (map[ligne][colonne + 1] == "portekitch"){
-                console.log("porte")
+                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
+                map = grid_kitchen;
+                ligne=11;
+                colonne=0;
                 colonne ++
+            } else if (map[ligne][colonne + 1] == "portenav") {
+                if (test == true){
+                    document.getElementById("mapimg").src="pics/navigation.png";
+                    map = grid_navigation;
+                    ligne=7;
+                    colonne=1;
+                    colonne ++
+                }
+                else {
+                    alert("Il manque la clé");
+                }         
             } else if (map[ligne][colonne + 1] != "sol") {
                 console.log("bloqué")
             } else {
