@@ -34,6 +34,12 @@ body {
     grid-row-start: 5;
 }
 
+#emergency_button{
+    height:32px;
+    grid-column-start: 6;
+    grid-row-start: 7;
+    z-index: 5;
+}
 #pnj {
     height: 64px;
     grid-column-start: 9;
