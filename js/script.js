@@ -17,8 +17,25 @@ function playAudio(event) {
     if (start == " ") {
         soundBuzzer.play();
         }
-    
+
     }
+
+//                INVENTAIRE                   //
+
+let keyColonne = 5 ;let keyRow = 11;
+var keyB = Boolean(false);
+console.log(keyB);
+
+var key = document.getElementById('key');
+
+function collision(){
+    if( colonne == keyColonne && ligne == keyRow ){
+        keyB = Boolean(true);
+        key.parentNode.removeChild(key);
+        return keyB;
+    }
+}
+//                                             //
 
 function pouvoir(event) {
     let touche = event.key;
@@ -52,7 +69,6 @@ function deplacement(event) {
                 ligne--;
                 console.log("haut");
             }
-            
         }
         else {
             console.log("bloqué")
@@ -112,6 +128,8 @@ function deplacement(event) {
 
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
+    collision();
+    console.log(keyB);
 }
 
 
@@ -135,6 +153,7 @@ function diminuerTemps() {
 }
 
 setInterval(diminuerTemps, 1000);
+
 
 document.addEventListener('keyup', deplacement);
 document.addEventListener('keyup', pouvoir);
