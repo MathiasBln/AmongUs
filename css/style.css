@@ -40,20 +40,6 @@ body {
     z-index: 6;
 }
 
-
-#key {
-    height: 64px;
-    z-index: 6;
-    grid-column-start: 5;
-    grid-row-start: 11;
-}
-#indice1 {
-    height: 20px;
-    z-index: 6;
-    grid-column-start: 4;
-    grid-row-start: 4;
-}
-
 #mapimg{
     width: 770px;
     position: absolute;
