@@ -8,7 +8,7 @@ let grid_cafet = [
     ["mur", "sol","sol","table", "table", "sol", "sol", "sol","table", "table", "table", "sol", "sol","mur"],
     ["mur", "sol","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "sol","mur"],
     ["mur", "portecent","sol","sol", "sol", "sol", "table", "table","sol", "sol", "sol", "sol", "portekitch","mur"],
-    ["mur", "portecent","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "portekitch","mur"],
+    ["mur", "sol","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "sol","mur"],
     ["mur", "sol","sol","table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "sol","mur"],
     ["mur", "sol","sol", "table", "table", "sol", "sol", "sol","table", "table", "sol", "sol", "sol","mur"],
     ["mur", "mur","sol","sol", "sol", "sol", "sol", "sol","sol", "sol", "sol", "sol", "mur","mur"],
