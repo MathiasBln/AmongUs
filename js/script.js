@@ -53,6 +53,13 @@ function deplacement(event) {
                 colonne=2;
                 console.log("portecuisine");
                 ligne --
+            } else if(map[ligne - 1][colonne] == "portemed_cafet"){
+                document.getElementById("mapimg").src="pics/among_us_cafet.png";
+                map = grid_cafet;
+                ligne=12;
+                colonne=7;
+                console.log("portecafet");
+                ligne --
             } else if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
             } else {
@@ -70,10 +77,14 @@ function deplacement(event) {
     else if (touche == "ArrowDown") {
         document.getElementById("player").src="pics/Walk_Right.png";
         if (ligne < 12) {
-            if (map[ligne + 1][colonne] == "portekitch"){
-                console.log("portecui")
-                ligne ++
-            } else if (map[ligne + 1][colonne] != "sol") {
+            if(map[ligne + 1][colonne] == "portemed"){
+                document.getElementById("mapimg").src="pics/medbay_amongus.png";
+                map = grid_medbay;
+                ligne=4;
+                colonne=5;
+                console.log("portemedbay");
+                ligne --
+            }else if (map[ligne + 1][colonne] != "sol") {
                 console.log("bloqué")
             } else {
                 ligne++;
@@ -90,8 +101,12 @@ function deplacement(event) {
     else if (touche == "ArrowLeft") {
         document.getElementById("player").src="pics/Walk_Left.png";
         if (colonne > 1) {
-            if (map[ligne][colonne - 1] == "portekitch"){
-                console.log("porte")
+            if (map[ligne][colonne - 1] == "portecent"){
+                document.getElementById("mapimg").src="pics/central_amongus.png";
+                map = grid_central;
+                ligne=8;
+                colonne=12;
+                console.log("portecent");
                 colonne --
             } else if (map[ligne][colonne - 1] != "sol") {
                 console.log("bloqué")
@@ -112,6 +127,13 @@ function deplacement(event) {
             if (map[ligne][colonne + 1] == "portekitch"){
                 console.log("porte")
                 colonne ++
+            }else if (map[ligne][colonne +1] == "portecent_cafet"){
+                document.getElementById("mapimg").src="pics/among_us_cafet.png";
+                map = grid_cafet;
+                ligne=7;
+                colonne=2;
+                console.log("portecent_cafet");
+                ligne --
             } else if (map[ligne][colonne + 1] != "sol") {
                 console.log("bloqué")
             } else {
