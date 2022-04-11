@@ -46,7 +46,21 @@ function deplacement(event) {
     if (touche == "ArrowUp") {
         document.getElementById("player").src="pics/Walk_Left.png";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] != "sol") {
+            if (map[ligne - 1][colonne] == "portekitch"){
+                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
+                map = grid_kitchen;
+                ligne=11;
+                colonne=2;
+                console.log("portecuisine");
+                ligne --
+            } else if(map[ligne - 1][colonne] == "portemed_cafet"){
+                document.getElementById("mapimg").src="pics/among_us_cafet.png";
+                map = grid_cafet;
+                ligne=12;
+                colonne=7;
+                console.log("portecafet");
+                ligne --
+            } else if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
             } else {
                 ligne--;
@@ -63,7 +77,14 @@ function deplacement(event) {
     else if (touche == "ArrowDown") {
         document.getElementById("player").src="pics/Walk_Right.png";
         if (ligne < 12) {
-            if (map[ligne + 1][colonne] != "sol") {
+            if(map[ligne + 1][colonne] == "portemed"){
+                document.getElementById("mapimg").src="pics/medbay_amongus.png";
+                map = grid_medbay;
+                ligne=4;
+                colonne=5;
+                console.log("portemedbay");
+                ligne --
+            }else if (map[ligne + 1][colonne] != "sol") {
                 console.log("bloqué")
             } else {
                 ligne++;
@@ -85,6 +106,12 @@ function deplacement(event) {
                 map = grid_cafet;
                 ligne=6;
                 colonne=13;
+            } else if (map[ligne][colonne - 1] == "portecent"){
+                document.getElementById("mapimg").src="pics/central_amongus.png";
+                map = grid_central;
+                ligne=8;
+                colonne=12;
+                console.log("portecent");
                 colonne --
             } else if (map[ligne][colonne - 1] == "portedeath") {
                 window.location.href='trap.html';
@@ -127,6 +154,13 @@ function deplacement(event) {
                 else {
                     alert("Il manque la clé");
                 }         
+            } else if (map[ligne][colonne +1] == "portecent_cafet"){
+                document.getElementById("mapimg").src="pics/among_us_cafet.png";
+                map = grid_cafet;
+                ligne=7;
+                colonne=2;
+                console.log("portecent_cafet");
+                ligne --
             } else if (map[ligne][colonne + 1] != "sol") {
                 console.log("bloqué")
             } else {
