@@ -105,7 +105,7 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=6;
-                colonne=13;
+                colonne=12;
             } else if (map[ligne][colonne - 1] == "portecent"){
                 document.getElementById("mapimg").src="pics/central_amongus.png";
                 map = grid_central;
