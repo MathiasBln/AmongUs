@@ -160,7 +160,7 @@ function deplacement(event) {
                 colonne=0;
                 colonne ++
             } else if (map[ligne][colonne + 1] == "portenav") {
-                if (test == true){
+                if (keyB == true){
                     document.getElementById("mapimg").src="pics/navigation.png";
                     map = grid_navigation;
                     ligne=7;
