@@ -56,6 +56,16 @@ body {
     
 }
 
+#help {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 6;
+    text-align: right;
+    grid-column-start: 12;
+}
+
 #menu {
     text-decoration: none;
     color: white;
