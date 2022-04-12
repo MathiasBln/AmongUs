@@ -34,11 +34,17 @@ body {
     grid-row-start: 5;
 }
 
+#emergency_button{
+    height:32px;
+    grid-column-start: 6;
+    grid-row-start: 7;
+    z-index: 5;
+}
 #pnj {
     height: 64px;
     grid-column-start: 9;
     grid-row-start: 6;
-    z-index: 6;
+    z-index: 5;
 }
 
 #mapimg {
@@ -74,3 +80,21 @@ body {
     text-align: center;
     padding-top: 50px
 }
+
+.dialogue{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    width: 400px;
+    height: fit-content;
+    font-family: 'AmongUS';
+    border: 6mm ridge rgb(124, 105, 105);
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(124, 105, 105, 0.475);;
+    text-align: center;
+    z-index: 7;
+    grid-column: 4 / 7;
+    grid-row: 11 / 12;
+}
+#alarme{visibility: hidden;}
