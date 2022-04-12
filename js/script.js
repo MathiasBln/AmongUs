@@ -33,7 +33,7 @@ pnj_white.style.zIndex = 6;
 var pnj_purple = document.createElement("img");
 pnj_purple.src = "pics/AmongUs_purple.png";
 pnj_purple.style.width = 65 + "px";
-pnj_purple.style.gridColumnStart = 3;
+pnj_purple.style.gridColumnStart = 9;
 pnj_purple.style.gridRowStart = 10;
 pnj_purple.style.zIndex = 6;
 
@@ -78,10 +78,10 @@ key.style.gridRowStart = 11;
 key.style.zIndex = 6;
 
 var div = document.getElementById("grille");
-div.appendChild(key);
+
 
 function collision(){
-    if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_cafet ){
+    if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
         return keyB;
     }
@@ -255,13 +255,17 @@ function deplacement(event) {
         pnj_white.remove();
         div.appendChild(pnj_black);
     } else if(map == grid_central){
-        key.remove();
         pnj_dead.remove();
         pnj_black.remove();
         pnj_white.remove();
         pnj_purple.remove();
         div.appendChild(pnj_yellow);
         div.appendChild(pnj_pink);
+        div.appendChild(key);
+        collision();
+        if (keyB == true){
+            key.remove();
+        }
     } else if(map == grid_medbay){
         key.remove();
         pnj_dead.remove();
@@ -271,6 +275,7 @@ function deplacement(event) {
         pnj_white.remove();
         div.appendChild(pnj_purple);
     } else if(map == grid_navigation){
+        key.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_purple.remove();
@@ -278,17 +283,13 @@ function deplacement(event) {
         pnj_black.remove();
         div.appendChild(pnj_white);
     }else if(map == grid_cafet){
+        key.remove();
         pnj_pink.remove();
         pnj_purple.remove();
         pnj_yellow.remove();
         pnj_black.remove();
         pnj_white.remove();
-        div.appendChild(key);
         div.appendChild(pnj_dead);
-        collision();
-        if (keyB == true){
-            key.remove();
-        }
     }
 }
 
