@@ -32,7 +32,7 @@ header div {
     color: white;
     font-size: 40px;
     width: 200px;
-    font-family: AmongUS;
+    font-family: 'AmongUS';
     margin-top: 20px;
     border: 6mm ridge rgb(124, 105, 105);
     border-radius: 10%;
@@ -46,5 +46,8 @@ header div {
     padding: 20px;
 }
 
-#logo{height: 150px;
+#logo{height: 200px;
+width: auto;}
+
+#banner{height: 250px;
 width: auto;}
