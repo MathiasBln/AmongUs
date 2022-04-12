@@ -9,18 +9,23 @@ let cooldown = true;
 
 const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
-
-
 function playAudio(event) {
+    const boite = document.querySelector('#alarme');
     let start = event.key;
     soundBuzzer.pause();
     soundBuzzer.currentTime = 0;
     soundBuzzer.volume = 0.1;
-    if (start == " ") {
-        soundBuzzer.play();
+    if (ligne == 7 && colonne == 6) {
+        boite.style.cssText='visibility:visible'
+        if (start == " " || event.code =="Space" || event.keycode == 32) {
+            soundBuzzer.play();
+            }
         }
-    
+    else{boite.style.cssText='visibility:hidden'} 
     }
+    //on integre le message a la grille quand le joueur passe devant le bouton, on peut aussi mettre le message directement dans le html
+    // et l'afficher ou le hide en fonction de la position peut etre ?
+    
 
 function pouvoir(event) {
     let touche = event.key;
@@ -153,9 +158,9 @@ function diminuerTemps() {
 }
 
 setInterval(diminuerTemps, 1000);
-if ((player.style.gridRow == 7 && player.style.gridColumn == 5) || (player.style.gridRow == 7 && player.style.gridColumn == 6)) {
-    console.log("popo");
-}
+
+
+
 document.addEventListener('keyup', deplacement);
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAudio);
