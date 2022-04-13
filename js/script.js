@@ -21,7 +21,12 @@ function playAudio(event) {
         }
     
     }
-
+function immobile(event){
+    let touche=event.key
+    if (touche = " "){
+        document.getElementById("player").src="pics/idle.png";
+    } 
+}
 function pouvoir(event) {
     let touche = event.key;
     if (touche == "Enter") {
@@ -44,7 +49,7 @@ function deplacement(event) {
     let touche = event.key;
     console.log(touche);
     if (touche == "ArrowUp") {
-        document.getElementById("player").src="pics/Walk_Left.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (ligne > 1) {
             if (map[ligne - 1][colonne] == "portekitch"){
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
@@ -75,7 +80,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowDown") {
-        document.getElementById("player").src="pics/Walk_Right.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (ligne < 12) {
             if(map[ligne + 1][colonne] == "portemed"){
                 document.getElementById("mapimg").src="pics/medbay_amongus.png";
@@ -99,7 +104,7 @@ function deplacement(event) {
         
     }
     else if (touche == "ArrowLeft") {
-        document.getElementById("player").src="pics/Walk_Left.png";
+        document.getElementById("player").src="gif/walkreverse.gif";
         if (colonne > 1) {
             if (map[ligne][colonne - 1] == "portekitch_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
@@ -135,7 +140,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowRight") {
-        document.getElementById("player").src="pics/Walk_Right.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (colonne < 12) {
             if (map[ligne][colonne + 1] == "portekitch"){
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
@@ -203,6 +208,7 @@ function diminuerTemps() {
 
 setInterval(diminuerTemps, 1000);
 
-document.addEventListener('keyup', deplacement);
+document.addEventListener('keydown', deplacement);
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAudio);
+document.addEventListener('keyup', immobile);
