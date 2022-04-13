@@ -12,21 +12,31 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 let test = false;
 
 function playAudio(event) {
+    const boite = document.querySelector('#alarme');
     let start = event.key;
     soundBuzzer.pause();
     soundBuzzer.currentTime = 0;
     soundBuzzer.volume = 0.1;
-    if (start == " ") {
-        soundBuzzer.play();
+    if (ligne == 7 && colonne == 6) {
+        boite.style.cssText='visibility:visible'
+        if (start == " " || event.code =="Space" || event.keycode == 32) {
+            soundBuzzer.play();
+            }
         }
-    
+    else{boite.style.cssText='visibility:hidden'} 
     }
+
 function immobile(event){
     let touche=event.key
     if (touche = " "){
         document.getElementById("player").src="pics/idle.png";
     } 
 }
+    //on integre le message a la grille quand le joueur passe devant le bouton, on peut aussi mettre le message directement dans le html
+    // et l'afficher ou le hide en fonction de la position peut etre ?
+    
+
+
 function pouvoir(event) {
     let touche = event.key;
     if (touche == "Enter") {
@@ -208,7 +218,9 @@ function diminuerTemps() {
 
 setInterval(diminuerTemps, 1000);
 
+
 document.addEventListener('keydown', deplacement);
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAudio);
 document.addEventListener('keyup', immobile);
+
