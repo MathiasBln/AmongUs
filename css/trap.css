@@ -5,7 +5,13 @@ body {
     background: black;
     width: 100vw;
     height: 100vh;
+    font-family: AmongUS;
   }
+
+@font-face {
+    font-family: AmongUS;
+    src: url(../font/In\ your\ face\,\ joffrey!.ttf);
+}
   
 boi {
 position: absolute;
@@ -88,7 +94,7 @@ display : block;
 color : white;
 font-size : 60px;
 margin-bottom : -50px;
-background : black;
+background : rgb(0, 0, 0);
 position : relative;
 animation : text 3s 1 forwards;
 }
