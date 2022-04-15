@@ -11,7 +11,12 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
 let test = false;
 
-function playAudio(event) {
+function playAlarm(event) {
+    const hideButton = document.getElementById("emergency_button");
+    if (map != grid_cafet){
+    hideButton.style.cssText = 'visibility : hidden;'}
+    else{hideButton.style.cssText = 'visibility : visible;'
+
     const boite = document.querySelector('#alarme');
     let start = event.key;
     soundBuzzer.pause();
@@ -24,6 +29,7 @@ function playAudio(event) {
             }
         }
     else{boite.style.cssText='visibility:hidden'} 
+    }
     }
 
 function immobile(event){
@@ -221,6 +227,6 @@ setInterval(diminuerTemps, 1000);
 
 document.addEventListener('keydown', deplacement);
 document.addEventListener('keyup', pouvoir);
-document.addEventListener('keyup', playAudio);
+document.addEventListener('keyup', playAlarm);
 document.addEventListener('keyup', immobile);
 
