@@ -11,13 +11,22 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
 let test = false;
 
-function playAudio(event) {
+function playAlarm(event) {
+    const hideButton = document.getElementById("emergency_button");
+    if (map != grid_cafet){
+    hideButton.style.cssText = 'visibility : hidden;'}
+    else{hideButton.style.cssText = 'visibility : visible;'
+
+    const boite = document.querySelector('#alarme');
     let start = event.key;
     soundBuzzer.pause();
     soundBuzzer.currentTime = 0;
     soundBuzzer.volume = 0.1;
-    if (start == " ") {
-        soundBuzzer.play();
+    if (ligne == 7 && colonne == 6) {
+        boite.style.cssText='visibility:visible'
+        if (start == " " || event.code =="Space" || event.keycode == 32) {
+            soundBuzzer.play();
+            }
         }
 
     }
@@ -86,7 +95,20 @@ function collision(){
         return keyB;
     }
 }
-//                                             //
+    else{boite.style.cssText='visibility:hidden'} 
+    }
+    }
+
+function immobile(event){
+    let touche=event.key
+    if (touche = " "){
+        document.getElementById("player").src="pics/idle.png";
+    } 
+}
+    //on integre le message a la grille quand le joueur passe devant le bouton, on peut aussi mettre le message directement dans le html
+    // et l'afficher ou le hide en fonction de la position peut etre ?
+    
+
 
 function pouvoir(event) {
     let touche = event.key;
@@ -110,7 +132,7 @@ function deplacement(event) {
     let touche = event.key;
     console.log(touche);
     if (touche == "ArrowUp") {
-        document.getElementById("player").src="pics/Walk_Left.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (ligne > 1) {
             if (map[ligne - 1][colonne] == "portekitch"){
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
@@ -140,7 +162,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowDown") {
-        document.getElementById("player").src="pics/Walk_Right.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (ligne < 12) {
             if(map[ligne + 1][colonne] == "portemed"){
                 document.getElementById("mapimg").src="pics/medbay_amongus.png";
@@ -164,7 +186,7 @@ function deplacement(event) {
         
     }
     else if (touche == "ArrowLeft") {
-        document.getElementById("player").src="pics/Walk_Left.png";
+        document.getElementById("player").src="gif/walkreverse.gif";
         if (colonne > 1) {
             if (map[ligne][colonne - 1] == "portekitch_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
@@ -200,7 +222,7 @@ function deplacement(event) {
         }
     }
     else if (touche == "ArrowRight") {
-        document.getElementById("player").src="pics/Walk_Right.png";
+        document.getElementById("player").src="gif/walk.gif";
         if (colonne < 12) {
             if (map[ligne][colonne + 1] == "portekitch"){
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
@@ -316,6 +338,12 @@ function diminuerTemps() {
 setInterval(diminuerTemps, 1000);
 
 
+
 document.addEventListener('keyup', deplacement);
+
+document.addEventListener('keydown', deplacement);
+
 document.addEventListener('keyup', pouvoir);
-document.addEventListener('keyup', playAudio);
+document.addEventListener('keyup', playAlarm);
+document.addEventListener('keyup', immobile);
+
