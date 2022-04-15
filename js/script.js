@@ -14,9 +14,10 @@ let test = false;
 function playAlarm(event) {
     const hideButton = document.getElementById("emergency_button");
     if (map != grid_cafet){
-    hideButton.style.cssText = 'visibility : hidden;'}
-    else{hideButton.style.cssText = 'visibility : visible;'
-
+        hideButton.style.cssText = 'visibility : hidden;'
+    } else {
+        hideButton.style.cssText = 'visibility : visible;'
+    }  
     const boite = document.querySelector('#alarme');
     let start = event.key;
     soundBuzzer.pause();
@@ -26,10 +27,10 @@ function playAlarm(event) {
         boite.style.cssText='visibility:visible'
         if (start == " " || event.code =="Space" || event.keycode == 32) {
             soundBuzzer.play();
-            }
         }
-
-    }
+        }
+}
+    
 var pnj_dead = document.getElementById("pnj_dead");
 
 var pnj_white = document.createElement("img");
@@ -95,9 +96,6 @@ function collision(){
         return keyB;
     }
 }
-    else{boite.style.cssText='visibility:hidden'} 
-    }
-    }
 
 function immobile(event){
     let touche=event.key
@@ -134,14 +132,7 @@ function deplacement(event) {
     if (touche == "ArrowUp") {
         document.getElementById("player").src="gif/walk.gif";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] == "portekitch"){
-                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
-                map = grid_kitchen;
-                ligne=11;
-                colonne=2;
-                console.log("portecuisine");
-                ligne --
-            } else if(map[ligne - 1][colonne] == "portemed_cafet"){
+            if(map[ligne - 1][colonne] == "portemed_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=12;
@@ -262,6 +253,7 @@ function deplacement(event) {
             console.log("bloqué");
         }
     }
+
     let player = document.querySelector("#player");
 
     player.style.gridColumn = colonne;
@@ -339,10 +331,8 @@ setInterval(diminuerTemps, 1000);
 
 
 
-document.addEventListener('keyup', deplacement);
 
 document.addEventListener('keydown', deplacement);
-
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAlarm);
 document.addEventListener('keyup', immobile);

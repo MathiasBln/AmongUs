@@ -8,23 +8,29 @@
 </head>
 <body>
     
+    <div id="blockGame">
+        <div id="grille">
+            <img id="player" src="pics/crewmate-rouge.png" alt="pic">
+            <img id="pnj_dead" src="pics/cadavre-bleu.png" alt="pnj" >
+            <img id="emergency_button" src="pics/Emergency_button.webp" alt="Emergency_button">
+            <div class="dialogue" id="alarme">Appuyez sur Espace pour activer l'alarme</div>
+        </div>
 
-    <div id="grille">
-        <a href="menu.html" id="menu">Retourner au menu</a>
-        <a target="_blank" href="howtoplay.html" id="help">Comment jouer</a>
-        <img id="player" src="pics/crewmate-rouge.png" alt="pic">
-        <img id="pnj_dead" src="pics/cadavre-bleu.png" alt="pnj" >
-        <img id="player" src="pics/idle.png" alt="pic">
-        <img id="pnj" src="pics/cadavre-bleu.png" alt="pnj" >
-        <img id="emergency_button" src="pics/Emergency_button.webp" alt="Emergency_button">
-        <div class="dialogue" id="alarme">Appuyez sur Espace pour activer l'alarme</div>
+        <div id="map">
+            <img id="mapimg" src="pics/among_us_cafet.png" alt="cafet">
+        </div>
     </div>
-    <div id="map">
-        <img id="mapimg" src="pics/among_us_cafet.png" alt="cafet">
 
+    <div id="menuInGame">
+        <div id="timer"></div>
+        <div id="blockInventaire">
+
+        </div>
+        <div id="blockHREF">
+            <a href="menu.html" id="menu" class="HREF">Retourner au menu</a>
+            <a target="_blank" href="howtoplay.html" id="help" class="HREF">Comment jouer</a>
+        </div>
     </div>
-    <div id="timer"></div>
-
 
     <script src="js/mapping.js"></script>
     <script src="js/script.js"></script>
@@ -32,5 +38,7 @@
         <audio controls autoplay hidden>
             <source src="musics/ambiancemusic.mp3" type="audio/mpeg"> 
         </audio>
+    </div>
+
 </body>
 </html>

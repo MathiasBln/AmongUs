@@ -10,7 +10,10 @@
     font-family: AmongUs;
 }
 body {
-    background-color: #333;
+    background-color: #282828;
+    display: flex;
+    flex-direction: row;
+    padding-top: 25px;
 }
 
 #grille {
@@ -18,11 +21,8 @@ body {
     grid-auto-flow: dense;
     grid-template-columns: repeat(12, 64px);
     grid-template-rows: repeat(12, 64px);
-    background-color: black;
+    background-color: #282828;
     position: absolute;
-    margin-left: 30%;
-    margin-top: 10%;
-    margin-right: 30;
 }
 
 
@@ -35,7 +35,12 @@ body {
 
 
 #pnj_dead {
-=======
+    height: 64px;
+    grid-column-start: 9;
+    grid-row-start: 6;
+    z-index: 6;
+}
+
 #emergency_button{
     height:32px;
     grid-column-start: 6;
@@ -53,8 +58,6 @@ body {
     width: 770px;
     position: absolute;
     z-index: 2;
-    margin-left: 30%;
-    margin-top: 10%;
 }
 
 #help {
@@ -75,9 +78,37 @@ body {
     z-index: 6;
 }
 
+#menuInGame{
+    margin-left: 90vh;
+    width: 70%;
+}
+
 #timer {
     font-size: 90px;
     color: white;
+    text-align: center;
+}
+
+#blockInventaire{
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 70%;
+    background-color: black;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+#blockHREF{
+    display: flex;
+    justify-content: space-around;
+}
+
+.HREF{
+    margin-top: 20px;
+    border: 4mm ridge rgb(124, 105, 105);
+    border-radius: 10%;
+    padding: 20px;
     text-align: center;
     padding-top: 50px
 }
@@ -98,4 +129,5 @@ body {
     grid-column: 4 / 7;
     grid-row: 11 / 12;
 }
+
 #alarme{visibility: hidden;}
