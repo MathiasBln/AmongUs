@@ -46,14 +46,7 @@ function deplacement(event) {
     if (touche == "ArrowUp") {
         document.getElementById("player").src="pics/Walk_Left.png";
         if (ligne > 1) {
-            if (map[ligne - 1][colonne] == "portekitch"){
-                document.getElementById("mapimg").src="pics/kitchen_amongus.png";
-                map = grid_kitchen;
-                ligne=11;
-                colonne=2;
-                console.log("portecuisine");
-                ligne --
-            } else if(map[ligne - 1][colonne] == "portemed_cafet"){
+            if(map[ligne - 1][colonne] == "portemed_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=12;

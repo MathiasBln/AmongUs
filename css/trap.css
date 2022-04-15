@@ -66,8 +66,6 @@ transform: rotate(7deg);
 border: 7px solid black;
 }
   
- 
-  
 .container
 {
 text-align : center;
@@ -89,8 +87,6 @@ display : block;
 {
 color : white;
 font-size : 60px;
-font-weight : 700;
-letter-spacing : 8px;
 margin-bottom : -50px;
 background : black;
 position : relative;
@@ -108,7 +104,6 @@ animation : text 3s 1 forwards;
 {
 0%
 {
-color : black;
 margin-bottom : -40px;
 }
 70%
