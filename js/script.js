@@ -28,6 +28,73 @@ function playAlarm(event) {
             soundBuzzer.play();
             }
         }
+
+    }
+var pnj_dead = document.getElementById("pnj_dead");
+
+var pnj_white = document.createElement("img");
+pnj_white.src = "pics/AmongUs_white.png";
+pnj_white.style.width = 60 + "px";
+pnj_white.style.gridColumnStart = 9;
+pnj_white.style.gridRowStart = 3;
+pnj_white.style.zIndex = 6;
+
+var pnj_purple = document.createElement("img");
+pnj_purple.src = "pics/AmongUs_purple.png";
+pnj_purple.style.width = 65 + "px";
+pnj_purple.style.gridColumnStart = 9;
+pnj_purple.style.gridRowStart = 10;
+pnj_purple.style.zIndex = 6;
+
+
+var pnj_pink = document.createElement("img");
+pnj_pink.src = "pics/AmongUs_pink.png";
+pnj_pink.style.width = 60 + "px";
+pnj_pink.style.gridColumnStart = 3;
+pnj_pink.style.gridRowStart = 8;
+pnj_pink.style.zIndex = 6;
+
+
+var pnj_yellow = document.createElement("img");
+pnj_yellow.src = "pics/AmongUs_yellow.png";
+pnj_yellow.style.width = 60 + "px";
+pnj_yellow.style.gridColumnStart = 6;
+pnj_yellow.style.gridRowStart = 4;
+pnj_yellow.style.zIndex = 6;
+
+
+var pnj_black = document.createElement("img");
+pnj_black.src = "pics/AmongUs_black.png";
+pnj_black.style.width = 65 + "px";
+pnj_black.style.gridColumnStart = 7;
+pnj_black.style.gridRowStart = 7;
+pnj_black.style.zIndex = 6;
+
+
+
+//                INVENTAIRE                   //
+
+
+
+var keyB = Boolean(false);
+console.log(keyB);
+
+var key = document.createElement("img");
+key.src = "pics/key_card.png";
+key.style.width = 40+"px" ;
+key.style.gridColumnStart = 5;
+key.style.gridRowStart = 11;
+key.style.zIndex = 6;
+
+var div = document.getElementById("grille");
+
+
+function collision(){
+    if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
+        keyB = Boolean(true);
+        return keyB;
+    }
+}
     else{boite.style.cssText='visibility:hidden'} 
     }
     }
@@ -89,7 +156,6 @@ function deplacement(event) {
                 console.log(ligne);
                 console.log(colonne);
             }
-            
         }
         else {
             console.log("bloqué")
@@ -165,7 +231,7 @@ function deplacement(event) {
                 colonne=0;
                 colonne ++
             } else if (map[ligne][colonne + 1] == "portenav") {
-                if (test == true){
+                if (keyB == true){
                     document.getElementById("mapimg").src="pics/navigation.png";
                     map = grid_navigation;
                     ligne=7;
@@ -200,6 +266,53 @@ function deplacement(event) {
 
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
+    console.log(keyB);
+
+    if (map == grid_kitchen){
+        key.remove();
+        pnj_dead.remove();
+        pnj_pink.remove();
+        pnj_purple.remove();
+        pnj_yellow.remove();
+        pnj_white.remove();
+        div.appendChild(pnj_black);
+    } else if(map == grid_central){
+        pnj_dead.remove();
+        pnj_black.remove();
+        pnj_white.remove();
+        pnj_purple.remove();
+        div.appendChild(pnj_yellow);
+        div.appendChild(pnj_pink);
+        div.appendChild(key);
+        collision();
+        if (keyB == true){
+            key.remove();
+        }
+    } else if(map == grid_medbay){
+        key.remove();
+        pnj_dead.remove();
+        pnj_pink.remove();
+        pnj_black.remove();
+        pnj_yellow.remove();
+        pnj_white.remove();
+        div.appendChild(pnj_purple);
+    } else if(map == grid_navigation){
+        key.remove();
+        pnj_dead.remove();
+        pnj_pink.remove();
+        pnj_purple.remove();
+        pnj_yellow.remove();
+        pnj_black.remove();
+        div.appendChild(pnj_white);
+    }else if(map == grid_cafet){
+        key.remove();
+        pnj_pink.remove();
+        pnj_purple.remove();
+        pnj_yellow.remove();
+        pnj_black.remove();
+        pnj_white.remove();
+        div.appendChild(pnj_dead);
+    }
 }
 
 
@@ -225,7 +338,11 @@ function diminuerTemps() {
 setInterval(diminuerTemps, 1000);
 
 
+
+document.addEventListener('keyup', deplacement);
+
 document.addEventListener('keydown', deplacement);
+
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAlarm);
 document.addEventListener('keyup', immobile);
