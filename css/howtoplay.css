@@ -20,7 +20,6 @@ body {
     color: white;
     border: 6mm ridge rgb(124, 105, 105);
     padding: 20px;
-    margin-top: 70px;
 
 }
 
@@ -49,13 +48,12 @@ h1 {
     width: auto;
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    
 }
 
 #box-audio {
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
 }
 
 
