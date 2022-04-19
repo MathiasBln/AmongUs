@@ -31,6 +31,16 @@ function playAlarm(event) {
         }
     }
 }
+let roundPurple = 0;
+
+function compteur(){
+    if (roundPurple < (diag_Purple.length -1)){
+        roundPurple += 1;
+        purple.innerHTML = diag_Purple[roundPurple];
+        purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+        console.log(roundPurple); 
+    }  
+}
 
 function interaction(event){
     const inter = document.querySelector('#inter'); 
@@ -39,6 +49,7 @@ function interaction(event){
     const yellow = document.querySelector('#yellow'); 
     const pink = document.querySelector('#pink'); 
     const white = document.querySelector('#white'); 
+
 
     // inter with black pnj
     if(ligne == 7 && colonne == 6){
@@ -53,7 +64,9 @@ function interaction(event){
     }  else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
             inter.style.cssText='visibility:visible;'
-            if (event.code == 'KeyF'){
+            if (event.code == 'KeyF'){                       
+                purple.innerHTML = diag_Purple[roundPurple];
+                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
                 purple.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
