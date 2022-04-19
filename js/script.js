@@ -12,22 +12,23 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
 // fonction pour jouer l'alarme
 function playAlarm(event) {
-    const boite = document.querySelector('#alarme');
-    let start = event.key;
-    //On initie le son, en le mettant en pause, au début, et à un volume bas
-    soundBuzzer.pause();
-    soundBuzzer.currentTime = 0;
-    soundBuzzer.volume = 0.1;
+    if (map == grid_cafet){
+        const boite = document.querySelector('#alarme');
+        let start = event.key;
+        //On initie le son, en le mettant en pause, au début, et à un volume bas
+        soundBuzzer.pause();
+        soundBuzzer.currentTime = 0;
+        soundBuzzer.volume = 0.1;
 
-    //Si le joueur est au bonne endroit, la boîte de dialogue s'affiche, sinon elle est cachée
-    if (ligne == 7 && colonne == 6) {
-        boite.style.cssText='visibility:visible;'
-        if (start == " " || event.code =="Space" || event.keycode == 32) {
-            soundBuzzer.play();
+        //Si le joueur est au bonne endroit, la boîte de dialogue s'affiche, sinon elle est cachée
+        if (ligne == 7 && colonne == 6) {
+            boite.style.cssText='visibility:visible;'
+            if (start == " " || event.code =="Space" || event.keycode == 32) {
+                soundBuzzer.play();
+            }
+        } else{
+            boite.style.cssText='visibility:hidden'
         }
-        }
-    else{
-        boite.style.cssText='visibility:hidden'
     }
 }
 
@@ -42,72 +43,57 @@ function interaction(event){
     // inter with black pnj
     if(ligne == 7 && colonne == 6){
         if (map == grid_kitchen){
-            inter.style.cssText='visibility:visible'
+            inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
-                black.style.cssText='visibility:visible'
-                inter.style.cssText='visibility:hidden'
+                black.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
             }
         }
-    } else {
-        black.style.cssText='visibility:hidden'
-        inter.style.cssText='visibility:hidden'
-    }
-
-    // inter with purple pnj
-    if(ligne == 10 && colonne == 8){
+     // inter with purple pnj
+    }  else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
-            inter.style.cssText='visibility:visible'
+            inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
-                purple.style.cssText='visibility:visible'
-                inter.style.cssText='visibility:hidden'
+                purple.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
             }
         }
-    } else {
-        purple.style.cssText='visibility:hidden'
-        inter.style.cssText='visibility:hidden'
-    }
-
     // inter with yellow pnj
-    if(ligne == 4 && colonne == 7){
+    } else if(ligne == 4 && colonne == 7){
         if (map == grid_central){
-            inter.style.cssText='visibility:visible'
+            inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
-                yellow.style.cssText='visibility:visible'
-                inter.style.cssText='visibility:hidden'
+                yellow.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
             }
         }
-    } else {
-        yellow.style.cssText='visibility:hidden'
-        inter.style.cssText='visibility:hidden'
-    }
-
     // inter with pink pnj
-    if(ligne == 8 && colonne == 4){
+    } else if(ligne == 8 && colonne == 4){
         if (map == grid_central){
-            inter.style.cssText='visibility:visible'
+            inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
-                pink.style.cssText='visibility:visible'
-                inter.style.cssText='visibility:hidden'
+                pink.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
             }
         }
-    } else {
-        pink.style.cssText='visibility:hidden'
-        inter.style.cssText='visibility:hidden'
-    }
-
     // inter with white pnj
-    if(ligne == 3 && colonne == 8){
+    } else if(ligne == 3 && colonne == 8){
         if (map == grid_navigation){
-            inter.style.cssText='visibility:visible'
+            inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
-                white.style.cssText='visibility:visible'
-                inter.style.cssText='visibility:hidden'
+                white.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
             }
         }
     } else {
-        white.style.cssText='visibility:hidden'
+        black.style.cssText='visibility:hidden;'
+        purple.style.cssText='visibility:hidden;'
+        yellow.style.cssText='visibility:hidden;'
+        pink.style.cssText='visibility:hidden;'
+        white.style.cssText='visibility:hidden;'
         inter.style.cssText='visibility:hidden'
     }
+ 
 }
 
 
