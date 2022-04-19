@@ -1,18 +1,19 @@
+// case de départ + map de départ
 let ligne = 5;
 let colonne = 4;
-
 let map = grid_cafet;
 player.style.gridColumn = colonne;
 player.style.gridRow = ligne;
 
 let cooldown = true;
 
+// son pour le buzzer
 const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
-let test = false;
-
+// fonction pour jouer l'alarme
 function playAlarm(event) {
     const hideButton = document.getElementById("emergency_button");
+    // affiche ou non le buzzer
     if (map != grid_cafet){
         hideButton.style.cssText = 'visibility : hidden;'
     } else {
@@ -30,9 +31,11 @@ function playAlarm(event) {
         }
         }
 }
-    
+
+// création pnj mort
 var pnj_dead = document.getElementById("pnj_dead");
 
+// création pnj white
 var pnj_white = document.createElement("img");
 pnj_white.src = "pics/AmongUs_white.png";
 pnj_white.style.width = 60 + "px";
@@ -40,6 +43,7 @@ pnj_white.style.gridColumnStart = 9;
 pnj_white.style.gridRowStart = 3;
 pnj_white.style.zIndex = 6;
 
+// création pnj violet
 var pnj_purple = document.createElement("img");
 pnj_purple.src = "pics/AmongUs_purple.png";
 pnj_purple.style.width = 65 + "px";
@@ -47,7 +51,7 @@ pnj_purple.style.gridColumnStart = 9;
 pnj_purple.style.gridRowStart = 10;
 pnj_purple.style.zIndex = 6;
 
-
+// création pnj rose
 var pnj_pink = document.createElement("img");
 pnj_pink.src = "pics/AmongUs_pink.png";
 pnj_pink.style.width = 60 + "px";
@@ -55,7 +59,7 @@ pnj_pink.style.gridColumnStart = 3;
 pnj_pink.style.gridRowStart = 8;
 pnj_pink.style.zIndex = 6;
 
-
+// création pnj jaune
 var pnj_yellow = document.createElement("img");
 pnj_yellow.src = "pics/AmongUs_yellow.png";
 pnj_yellow.style.width = 60 + "px";
@@ -63,7 +67,7 @@ pnj_yellow.style.gridColumnStart = 6;
 pnj_yellow.style.gridRowStart = 4;
 pnj_yellow.style.zIndex = 6;
 
-
+// création pnj noir
 var pnj_black = document.createElement("img");
 pnj_black.src = "pics/AmongUs_black.png";
 pnj_black.style.width = 65 + "px";
@@ -75,11 +79,11 @@ pnj_black.style.zIndex = 6;
 
 //                INVENTAIRE                   //
 
-
-
+// gestion de la clé
 var keyB = Boolean(false);
 console.log(keyB);
 
+// ajout de la clé sur la map
 var key = document.createElement("img");
 key.src = "pics/key_card.png";
 key.style.width = 40+"px" ;
@@ -89,7 +93,7 @@ key.style.zIndex = 6;
 
 var div = document.getElementById("grille");
 
-
+// ajout de la clé dans l'inventaire
 function collision(){
     if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
@@ -97,6 +101,7 @@ function collision(){
     }
 }
 
+// changement de gif à image pour le player
 function immobile(event){
     let touche=event.key
     if (touche = " "){
@@ -108,149 +113,120 @@ function immobile(event){
     
 
 
-function pouvoir(event) {
-    let touche = event.key;
-    if (touche == "Enter") {
-        if (ligne > 1 && colonne < 12){
-            ligne = ligne + 3;
-            colonne = colonne + 3
-        }
-        
-    let player = document.querySelector("#player");
-
-    player.style.gridColumn = colonne;
-    player.style.gridRow = ligne;
-    return cooldown = false; 
-    }
-}
-console.log(cooldown);
-
-
+// gestion déplacement
 function deplacement(event) {
     let touche = event.key;
     console.log(touche);
+    // gestion flèche du haut
     if (touche == "ArrowUp") {
         document.getElementById("player").src="gif/walk.gif";
+        // gestion sorti grid
         if (ligne > 1) {
+            // direction med à cafet
             if(map[ligne - 1][colonne] == "portemed_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=12;
                 colonne=7;
-                console.log("portecafet");
-                ligne --
+            // gestion des murs
             } else if (map[ligne - 1][colonne] != "sol") {
                 console.log("bloqué");
             } else {
                 ligne--;
-                console.log("haut");
-                console.log(ligne);
-                console.log(colonne);
             }
         }
-        else {
-            console.log("bloqué")
-        }
     }
+    
+    // gestion flèche du bas
     else if (touche == "ArrowDown") {
         document.getElementById("player").src="gif/walk.gif";
+        // gestion sorti grid
         if (ligne < 12) {
+             // direction cafet à med
             if(map[ligne + 1][colonne] == "portemed"){
                 document.getElementById("mapimg").src="pics/medbay_amongus.png";
                 map = grid_medbay;
-                ligne=4;
+                ligne=2;
                 colonne=5;
                 console.log("portemedbay");
-                ligne --
             }else if (map[ligne + 1][colonne] != "sol") {
                 console.log("bloqué")
             } else {
                 ligne++;
-                console.log("bas");
-                console.log(ligne);
-                console.log(colonne);
+
             }
         }
-        else {
-            console.log("bloqué");
-        }
-        
     }
+
+    // gestion flèche de gauche
     else if (touche == "ArrowLeft") {
         document.getElementById("player").src="gif/walkreverse.gif";
+        // gestion sorti grid
         if (colonne > 1) {
+            // direction kitchen à cafet
             if (map[ligne][colonne - 1] == "portekitch_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=6;
                 colonne=12;
+            // direction cafet à central
             } else if (map[ligne][colonne - 1] == "portecent"){
                 document.getElementById("mapimg").src="pics/central_amongus.png";
                 map = grid_central;
                 ligne=8;
                 colonne=12;
-                console.log("portecent");
-                colonne --
+            // direction kitchen à trap
             } else if (map[ligne][colonne - 1] == "portedeath") {
                 window.location.href='trap.html';
+            // direction navigation à kitchen
             } else if (map[ligne][colonne - 1] == "portenav_kitch") {
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
                 map = grid_kitchen;
                 ligne=10;
                 colonne=10;
-                colonne ++            
             } else if (map[ligne][colonne - 1] != "sol") {
                 console.log("bloqué")
             } else {
                 colonne--;
-                console.log("gauche")
-                console.log(ligne);
-                console.log(colonne);
             }
         }
-        else {
-            console.log("bloqué");
-        }
     }
+
+    // gestion flèche de droite
     else if (touche == "ArrowRight") {
         document.getElementById("player").src="gif/walk.gif";
+        // gestion sorti grid
         if (colonne < 12) {
+            // direction cafet à kitchen
             if (map[ligne][colonne + 1] == "portekitch"){
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
                 map = grid_kitchen;
                 ligne=11;
-                colonne=0;
-                colonne ++
+                colonne=1;
+            // direction kitchen à navigation
             } else if (map[ligne][colonne + 1] == "portenav") {
+                // gestion clé
                 if (keyB == true){
                     document.getElementById("mapimg").src="pics/navigation.png";
                     map = grid_navigation;
                     ligne=7;
                     colonne=1;
-                    colonne ++
                 }
                 else {
                     alert("Il manque la clé");
                 }         
+            // direction central à cafet
             } else if (map[ligne][colonne +1] == "portecent_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=7;
                 colonne=2;
-                console.log("portecent_cafet");
-                ligne --
             } else if (map[ligne][colonne + 1] != "sol") {
                 console.log("bloqué")
             } else {
                 colonne++;
-                console.log("droite")
-                console.log(ligne);
-                console.log(colonne);
             }
 
-        }
-        else {
-            console.log("bloqué");
         }
     }
 
@@ -258,8 +234,8 @@ function deplacement(event) {
 
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
-    console.log(keyB);
 
+    // ajout ou non des PNJ sur les différentes map
     if (map == grid_kitchen){
         key.remove();
         pnj_dead.remove();
@@ -307,11 +283,10 @@ function deplacement(event) {
     }
 }
 
-
+// fonction du temps - 5 min
 let temps = 300;
 
 const timer = document.getElementById('timer');
-
 
 function diminuerTemps() {
     let minutes = parseInt(temps / 60, 10)
@@ -327,13 +302,10 @@ function diminuerTemps() {
     }
 }
 
+
+// activation des fonctions
 setInterval(diminuerTemps, 1000);
-
-
-
-
 document.addEventListener('keydown', deplacement);
-document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAlarm);
 document.addEventListener('keyup', immobile);
 
