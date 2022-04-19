@@ -188,7 +188,7 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=6;
-                colonne=12;
+                colonne=11;
             } else if (map[ligne][colonne - 1] == "portecent"){
                 document.getElementById("mapimg").src="pics/central_amongus.png";
                 map = grid_central;
@@ -224,7 +224,7 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/kitchen_amongus.png";
                 map = grid_kitchen;
                 ligne=11;
-                colonne=0;
+                colonne=1;
                 colonne ++
             } else if (map[ligne][colonne + 1] == "portenav") {
                 if (keyB == true){
@@ -241,7 +241,7 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=7;
-                colonne=2;
+                colonne=3;
                 console.log("portecent_cafet");
                 ligne --
             } else if (map[ligne][colonne + 1] != "sol") {
