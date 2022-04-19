@@ -15,7 +15,11 @@ body {
 #box-audio {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+}
+
+#box-audio, #menu {
+    margin-left:20px ;
+    margin-top: 70px;
 }
 
 #menu {
@@ -24,14 +28,13 @@ body {
     color: white;
     border: 6mm ridge rgb(124, 105, 105);
     padding: 20px;
-    margin-top: 70px;
-
 }
 
 #CM-gif {
     display: flex;
     justify-content: space-between;
     padding: 40px;
+    height: 200px;
 }
 #names {
     display: flex;

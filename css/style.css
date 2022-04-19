@@ -38,7 +38,7 @@ body {
     height: 64px;
     grid-column-start: 9;
     grid-row-start: 6;
-    z-index: 6;
+    z-index: 5;
 }
 
 #emergency_button{
