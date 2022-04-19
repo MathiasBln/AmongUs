@@ -156,14 +156,21 @@ key.style.gridColumnStart = 5;
 key.style.gridRowStart = 11;
 key.style.zIndex = 6;
 
+
+
 var div = document.getElementById("grille");
+var inventaire = document.getElementById("blockInventaire");
+
 
 // ajout de la clé dans l'inventaire
+
 function collision(){
     if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
+        
         return keyB;
     }
+
 }
 
 // changement de gif à image pour le player
@@ -356,6 +363,12 @@ function deplacement(event) {
         div.appendChild(pnj_dead);
         div.appendChild(emergency_button);
     }
+    if (keyB == true){
+        key.style.width = 100+"px";
+        key.style.margin = 10+"px"
+        inventaire.appendChild(key);
+
+    }  
 }
 
 // fonction du temps - 5 min
