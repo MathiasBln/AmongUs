@@ -12,7 +12,7 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 let test = false;
 
 function playAlarm(event) {
-    const hideButton = document.getElementById("emergency_button");      
+    if (map == grid_cafet){     
     const boite = document.querySelector('#alarme');
     let start = event.key;
     //On initie le son, en le mettant en pause, au début, et à un volume bas
@@ -28,6 +28,7 @@ function playAlarm(event) {
         }
         }
     else{boite.style.cssText='visibility:hidden;'}
+    }
     }
    
     
