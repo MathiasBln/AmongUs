@@ -166,6 +166,7 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=6;
+                colonne=11;
                 colonne=12;
             // direction cafet à central
             } else if (map[ligne][colonne - 1] == "portecent"){
@@ -201,6 +202,7 @@ function deplacement(event) {
                 map = grid_kitchen;
                 ligne=11;
                 colonne=1;
+                colonne ++
             // direction kitchen à navigation
             } else if (map[ligne][colonne + 1] == "portenav") {
                 // gestion clé
@@ -218,6 +220,9 @@ function deplacement(event) {
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
                 ligne=7;
+                colonne=3;
+                console.log("portecent_cafet");
+                ligne --
                 colonne=2;
             } else if (map[ligne][colonne + 1] != "sol") {
                 console.log("bloqué")
