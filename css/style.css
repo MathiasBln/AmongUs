@@ -38,7 +38,7 @@ body {
     height: 64px;
     grid-column-start: 9;
     grid-row-start: 6;
-    z-index: 6;
+    z-index: 5;
 }
 
 #emergency_button{
@@ -131,3 +131,11 @@ body {
 }
 
 #alarme{visibility: hidden;}
+
+#inter{visibility: hidden;}
+#black{visibility: hidden;}
+#black2{visibility: hidden;}
+#purple{visibility: hidden;}
+#yellow{visibility: hidden;}
+#pink{visibility: hidden;}
+#white{visibility: hidden;}
