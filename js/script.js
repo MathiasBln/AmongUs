@@ -12,13 +12,6 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
 // fonction pour jouer l'alarme
 function playAlarm(event) {
-    const hideButton = document.getElementById("emergency_button");
-    // affiche ou non le buzzer
-    if (map != grid_cafet){
-        hideButton.style.cssText = 'visibility : hidden;'
-    } else {
-        hideButton.style.cssText = 'visibility : visible;'
-      
     const boite = document.querySelector('#alarme');
     let start = event.key;
     //On initie le son, en le mettant en pause, au début, et à un volume bas
@@ -35,8 +28,8 @@ function playAlarm(event) {
         }
     else{boite.style.cssText='visibility:hidden;'}
     }
-    }
-    
+   
+var emergency_button = document.getElementById("emergency_button");
 
 var pnj_dead = document.getElementById("pnj_dead");
 
@@ -243,6 +236,7 @@ function deplacement(event) {
     // ajout ou non des PNJ sur les différentes map
     if (map == grid_kitchen){
         key.remove();
+        emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_purple.remove();
@@ -250,6 +244,7 @@ function deplacement(event) {
         pnj_white.remove();
         div.appendChild(pnj_black);
     } else if(map == grid_central){
+        emergency_button.remove();
         pnj_dead.remove();
         pnj_black.remove();
         pnj_white.remove();
@@ -263,6 +258,7 @@ function deplacement(event) {
         }
     } else if(map == grid_medbay){
         key.remove();
+        emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_black.remove();
@@ -271,6 +267,7 @@ function deplacement(event) {
         div.appendChild(pnj_purple);
     } else if(map == grid_navigation){
         key.remove();
+        emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_purple.remove();
@@ -285,6 +282,7 @@ function deplacement(event) {
         pnj_black.remove();
         pnj_white.remove();
         div.appendChild(pnj_dead);
+        div.appendChild(emergency_button);
     }
 }
 
