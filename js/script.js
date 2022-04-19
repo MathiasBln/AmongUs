@@ -88,13 +88,15 @@ key.style.gridRowStart = 11;
 key.style.zIndex = 6;
 
 var div = document.getElementById("grille");
-
+var inventaire = document.getElementById("blockInventaire");
 
 function collision(){
     if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
+        
         return keyB;
     }
+
 }
 
 function immobile(event){
@@ -227,11 +229,11 @@ function deplacement(event) {
                     map = grid_navigation;
                     ligne=7;
                     colonne=1;
-                    colonne ++
+                    colonne ++;
                 }
                 else {
                     alert("Il manque la clé");
-                }         
+                }     
             } else if (map[ligne][colonne +1] == "portecent_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";
                 map = grid_cafet;
@@ -305,6 +307,9 @@ function deplacement(event) {
         pnj_white.remove();
         div.appendChild(pnj_dead);
     }
+    if (keyB == true){
+        inventaire.appendChild(key);
+    }   
 }
 
 
