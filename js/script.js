@@ -17,19 +17,24 @@ function playAlarm(event) {
         hideButton.style.cssText = 'visibility : hidden;'
     } else {
         hideButton.style.cssText = 'visibility : visible;'
-    }  
+      
     const boite = document.querySelector('#alarme');
     let start = event.key;
+    //On initie le son, en le mettant en pause, au début, et à un volume bas
     soundBuzzer.pause();
     soundBuzzer.currentTime = 0;
     soundBuzzer.volume = 0.1;
+
+    //Si le joueur est au bonne endroit, la boîte de dialogue s'affiche, sinon elle est cachée
     if (ligne == 7 && colonne == 6) {
-        boite.style.cssText='visibility:visible'
+        boite.style.cssText='visibility:visible;'
         if (start == " " || event.code =="Space" || event.keycode == 32) {
             soundBuzzer.play();
         }
         }
-}
+    else{boite.style.cssText='visibility:hidden;'}
+    }
+    }
     
 var pnj_dead = document.getElementById("pnj_dead");
 
