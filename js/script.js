@@ -87,6 +87,7 @@ key.style.gridColumnStart = 5;
 key.style.gridRowStart = 11;
 key.style.zIndex = 6;
 
+
 var div = document.getElementById("grille");
 var inventaire = document.getElementById("blockInventaire");
 
@@ -308,8 +309,11 @@ function deplacement(event) {
         div.appendChild(pnj_dead);
     }
     if (keyB == true){
+        key.style.width = 100+"px";
+        key.style.margin = 10+"px"
         inventaire.appendChild(key);
-    }   
+
+    }  
 }
 
 
