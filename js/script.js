@@ -11,10 +11,12 @@ const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
 
 let test = false;
 
+
 function playAlarm(event) {
     const hideButton = document.getElementById("emergency_button");
     if (map != grid_cafet){
         hideButton.style.cssText = 'visibility : hidden;'
+        boite.style.cssText='visibility:hidden'
     } else {
         hideButton.style.cssText = 'visibility : visible;'
     }  
@@ -29,7 +31,91 @@ function playAlarm(event) {
             soundBuzzer.play();
         }
         }
+    else{
+        boite.style.cssText='visibility:hidden'
+    }
 }
+
+function interaction(event){
+    const inter = document.querySelector('#inter'); 
+    const black = document.querySelector('#black'); 
+    const purple = document.querySelector('#purple'); 
+    const yellow = document.querySelector('#yellow'); 
+    const pink = document.querySelector('#pink'); 
+    const white = document.querySelector('#white'); 
+
+    // inter with black pnj
+    if(ligne == 7 && colonne == 6){
+        if (map == grid_kitchen){
+            inter.style.cssText='visibility:visible'
+            if (event.code == 'KeyF'){
+                black.style.cssText='visibility:visible'
+                inter.style.cssText='visibility:hidden'
+            }
+        }
+    } else {
+        black.style.cssText='visibility:hidden'
+        inter.style.cssText='visibility:hidden'
+    }
+
+    // inter with purple pnj
+    if(ligne == 10 && colonne == 8){
+        if (map == grid_medbay){
+            inter.style.cssText='visibility:visible'
+            if (event.code == 'KeyF'){
+                purple.style.cssText='visibility:visible'
+                inter.style.cssText='visibility:hidden'
+            }
+        }
+    } else {
+        purple.style.cssText='visibility:hidden'
+        inter.style.cssText='visibility:hidden'
+    }
+
+    // inter with yellow pnj
+    if(ligne == 4 && colonne == 7){
+        if (map == grid_central){
+            inter.style.cssText='visibility:visible'
+            if (event.code == 'KeyF'){
+                yellow.style.cssText='visibility:visible'
+                inter.style.cssText='visibility:hidden'
+            }
+        }
+    } else {
+        yellow.style.cssText='visibility:hidden'
+        inter.style.cssText='visibility:hidden'
+    }
+
+    // inter with pink pnj
+    if(ligne == 8 && colonne == 4){
+        if (map == grid_central){
+            inter.style.cssText='visibility:visible'
+            if (event.code == 'KeyF'){
+                pink.style.cssText='visibility:visible'
+                inter.style.cssText='visibility:hidden'
+            }
+        }
+    } else {
+        pink.style.cssText='visibility:hidden'
+        inter.style.cssText='visibility:hidden'
+    }
+
+    // inter with white pnj
+    if(ligne == 3 && colonne == 8){
+        if (map == grid_navigation){
+            inter.style.cssText='visibility:visible'
+            if (event.code == 'KeyF'){
+                white.style.cssText='visibility:visible'
+                inter.style.cssText='visibility:hidden'
+            }
+        }
+    } else {
+        white.style.cssText='visibility:hidden'
+        inter.style.cssText='visibility:hidden'
+    }
+}
+
+
     
 var pnj_dead = document.getElementById("pnj_dead");
 
@@ -336,4 +422,5 @@ document.addEventListener('keydown', deplacement);
 document.addEventListener('keyup', pouvoir);
 document.addEventListener('keyup', playAlarm);
 document.addEventListener('keyup', immobile);
+document.addEventListener('keyup', interaction);
 
