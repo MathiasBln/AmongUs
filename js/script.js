@@ -8,7 +8,7 @@ player.style.gridRow = ligne;
 let cooldown = true;
 
 // son pour le buzzer
-const soundBuzzer = new Audio('../sounds/Emergency_meeting.mp3');
+const soundBuzzer = new Audio('sounds/Emergency_meeting.mp3');
 
 // fonction pour jouer l'alarme
 function playAlarm(event) {
@@ -19,7 +19,6 @@ function playAlarm(event) {
         soundBuzzer.pause();
         soundBuzzer.currentTime = 0;
         soundBuzzer.volume = 0.1;
-
         //Si le joueur est au bonne endroit, la boîte de dialogue s'affiche, sinon elle est cachée
         if (ligne == 7 && colonne == 6) {
             boite.style.cssText='visibility:visible;'
@@ -95,7 +94,6 @@ function interaction(event){
     }
  
 }
-
 
    
 var emergency_button = document.getElementById("emergency_button");
