@@ -37,8 +37,15 @@ let round = 0;
 
 function compteur(){
     if (ligne == 10 && colonne == 8){
-        // pour ne pas dépasser la taille du tableau
-        if (round < (diag_Purple[0].length -1)){
+        if ( burgerBool == true ){
+            if(round < (diag_Purple[1].length -1)){
+                round += 1;
+                // change le dialogue
+                purple.innerHTML = diag_Purple[1][round];
+                // ajoute le boutton pour changer de dialogue
+                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';    
+            }
+        } else if(round < (diag_Purple[0].length -1)){
             round += 1;
             // change le dialogue
             purple.innerHTML = diag_Purple[0][round];
@@ -104,13 +111,24 @@ function interaction(event){
     }  else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
             inter.style.cssText='visibility:visible;'
-            if (event.code == 'KeyF'){            
-                // affiche le texte 1           
-                purple.innerHTML = diag_Purple[0][round];
-                // ajoute le boutton pour changer le dialogue
-                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
-                purple.style.cssText='visibility:visible;'
-                inter.style.cssText='visibility:hidden;'
+            if (event.code == 'KeyF'){  
+                if (burgerBool == true ){
+                    // change le dialogue
+                    purple.innerHTML = diag_Purple[1][round];
+                    // ajoute le boutton pour changer de dialogue
+                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                    burger.style.cssText='visibility:hidden;'
+                } else {
+                    // affiche le texte 1           
+                    purple.innerHTML = diag_Purple[0][round];
+                    // ajoute le boutton pour changer le dialogue
+                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                }         
+                
             }
         }
     // inter with yellow pnj
@@ -158,6 +176,11 @@ function interaction(event){
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
+        }
+    } else if (ligne == 7 && colonne == 5 && map == grid_kitchen){
+        inter.style.cssText='visibility:visible;'
+        if (event.code == 'KeyF'){
+            burgerBool = Boolean(true);
         }
     } else {
         black.style.cssText='visibility:hidden;'
@@ -233,6 +256,11 @@ pnj_black.style.zIndex = 6;
 var keyB = Boolean(false);
 console.log(keyB);
 
+// gestion du burger
+var burgerBool = Boolean(false);
+var burger = document.createElement("img");
+burger.src = "pics/burger.png";
+
 // ajout de la clé sur la map
 var key = document.createElement("img");
 key.src = "pics/key_card.png";
@@ -248,14 +276,11 @@ var inventaire = document.getElementById("blockInventaire");
 
 
 // ajout de la clé dans l'inventaire
-
 function collision(){
     if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
-
         return keyB;
     }
-
 }
 
 // changement de gif à image pour le player
@@ -449,14 +474,21 @@ function deplacement(event) {
         div.appendChild(pnj_dead);
         div.appendChild(emergency_button);
     }
+
+
     if (keyB == true){
         key.style.width = 100+"px";
         key.style.margin = 10+"px"
         inventaire.appendChild(key);
-
-
     }
     console.log(oxygene); 
+  
+    if (burgerBool == true){
+        burger.style.width = 100+"px";
+        burger.style.margin = 10+"px"
+        inventaire.appendChild(burger);
+    }
+
 }
 
 // fonction du temps - 5 min
