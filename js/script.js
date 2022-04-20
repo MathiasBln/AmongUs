@@ -114,6 +114,7 @@ function compteur(){
 
 function interaction(event){
     const inter = document.querySelector('#inter'); 
+    const take = document.querySelector('#take'); 
     const black = document.querySelector('#black'); 
     const purple = document.querySelector('#purple'); 
     const yellow = document.querySelector('#yellow'); 
@@ -210,10 +211,15 @@ function interaction(event){
                 inter.style.cssText='visibility:hidden;'
             }
         }
-    } else if (ligne == 7 && colonne == 5 && map == grid_kitchen){
-        inter.style.cssText='visibility:visible;'
+      // inter white burger  
+    } else if (ligne == 6 && colonne == 5 && map == grid_kitchen){
+        take.style.cssText='visibility:visible;'
         if (event.code == 'KeyF'){
             burgerBool = Boolean(true);
+            take.style.cssText='visibility:hidden;'
+            burger.style.width = 100+"px";
+            burger.style.margin = 10+"px"
+            inventaire.appendChild(burger);
         }
     } else {
         black.style.cssText='visibility:hidden;'
@@ -222,6 +228,7 @@ function interaction(event){
         pink.style.cssText='visibility:hidden;'
         white.style.cssText='visibility:hidden;'
         inter.style.cssText='visibility:hidden'
+        take.style.cssText='visibility:hidden;'
         round = 0;
     }
  
@@ -521,7 +528,6 @@ function deplacement(event) {
         burger.style.margin = 10+"px"
         inventaire.appendChild(burger);
     }
-
 }
 
 // fonction du temps - 5 min
