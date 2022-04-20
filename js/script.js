@@ -64,14 +64,6 @@ function compteur(){
             black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';
         } 
     } else if(ligne == 4 && colonne == 7) {
-        // DIAG YELLOW
-        if (round < (diag_Yellow[0].length -1)){
-            round += 1;
-            // change le dialogue
-            yellow.innerHTML = diag_Yellow[0][round];
-            // ajoute le boutton pour changer de dialogue
-            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
-        } 
         // pour ne pas dépasser la taille du tableau
         if (oxygene == false){
             if (round < (diag_Yellow[0].length -1)){
