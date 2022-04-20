@@ -217,9 +217,6 @@ function interaction(event){
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
-
-        }
-  
       // inter with burger         
     } else if (ligne == 6 && colonne == 5 && map == grid_kitchen){
         take.style.cssText='visibility:visible;'
@@ -268,26 +265,6 @@ function interaction(event){
                 find4.style.cssText='visibility:hidden;'
             }
         }
-    } else {
-    black.style.cssText='visibility:hidden;'
-    purple.style.cssText='visibility:hidden;'
-    yellow.style.cssText='visibility:hidden;'
-    pink.style.cssText='visibility:hidden;'
-    white.style.cssText='visibility:hidden;'
-    inter.style.cssText='visibility:hidden'
-    take.style.cssText='visibility:hidden;'
-    find1.style.cssText='visibility:hidden;'
-    find2.style.cssText='visibility:hidden;'
-    find3.style.cssText='visibility:hidden;'
-    find4.style.cssText='visibility:hidden;'
-    lit1.style.cssText='visibility:hidden;'
-    lit2.style.cssText='visibility:hidden;'
-    lit3.style.cssText='visibility:hidden;'
-    lit4.style.cssText='visibility:hidden;'
-
-    round = 0;
-}
-
     } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
         porte.style.cssText='visibility:visible;';
     } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false){
@@ -302,6 +279,14 @@ function interaction(event){
         cardShow.style.cssText="visibility:hidden;"
         inter.style.cssText='visibility:hidden;'
         take.style.cssText='visibility:hidden;'
+        find1.style.cssText='visibility:hidden;'
+        find2.style.cssText='visibility:hidden;'
+        find3.style.cssText='visibility:hidden;'
+        find4.style.cssText='visibility:hidden;'
+        lit1.style.cssText='visibility:hidden;'
+        lit2.style.cssText='visibility:hidden;'
+        lit3.style.cssText='visibility:hidden;'
+        lit4.style.cssText='visibility:hidden;'
         round = 0;
     }
 
