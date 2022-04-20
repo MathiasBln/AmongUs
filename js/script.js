@@ -38,8 +38,15 @@ let round = 0;
 function compteur(){
     // DIAG PURPLE
     if (ligne == 10 && colonne == 8){
-        // pour ne pas dépasser la taille du tableau
-        if (round < (diag_Purple[0].length -1)){
+        if ( burgerBool == true ){
+            if(round < (diag_Purple[1].length -1)){
+                round += 1;
+                // change le dialogue
+                purple.innerHTML = diag_Purple[1][round];
+                // ajoute le boutton pour changer de dialogue
+                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';    
+            }
+        } else if(round < (diag_Purple[0].length -1)){
             round += 1;
             // change le dialogue
             purple.innerHTML = diag_Purple[0][round];
@@ -65,6 +72,23 @@ function compteur(){
             // ajoute le boutton pour changer de dialogue
             yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
         } 
+        // pour ne pas dépasser la taille du tableau
+        if (oxygene == false){
+            if (round < (diag_Yellow[0].length -1)){
+                round += 1;
+                // change le dialogue
+                yellow.innerHTML = diag_Yellow[0][round];
+                // ajoute le boutton pour changer de dialogue
+                yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+            } 
+        }else if(round <(diag_Yellow[1].length-1)){
+            round += 1;
+            // change le dialogue
+            yellow.innerHTML = diag_Yellow[1][round];
+            // ajoute le boutton pour changer de dialogue
+            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+        }
+
     } else if(ligne == 8 && colonne == 4) {
         // DIAG PINK
         if (round < (diag_Pink[0].length -1)){
@@ -83,6 +107,8 @@ function compteur(){
             // ajoute le boutton pour changer de dialogue
             white.innerHTML += '<button id="buttonWhite" onclick="compteur()">Next</button>';
         } 
+        inventaire.appendChild(bouteille_oxygene);
+        oxygene = Boolean(true);
     }
 }
 
@@ -111,13 +137,24 @@ function interaction(event){
     }  else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
             inter.style.cssText='visibility:visible;'
-            if (event.code == 'KeyF'){            
-                // affiche le texte 1           
-                purple.innerHTML = diag_Purple[0][round];
-                // ajoute le boutton pour changer le dialogue
-                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
-                purple.style.cssText='visibility:visible;'
-                inter.style.cssText='visibility:hidden;'
+            if (event.code == 'KeyF'){  
+                if (burgerBool == true ){
+                    // change le dialogue
+                    purple.innerHTML = diag_Purple[1][round];
+                    // ajoute le boutton pour changer de dialogue
+                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                    burger.style.cssText='visibility:hidden;'
+                } else {
+                    // affiche le texte 1           
+                    purple.innerHTML = diag_Purple[0][round];
+                    // ajoute le boutton pour changer le dialogue
+                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                }         
+                
             }
         }
     // inter with yellow pnj
@@ -130,6 +167,22 @@ function interaction(event){
                 yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
                 yellow.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
+                if(oxygene == false){
+                    // affiche le texte 1           
+                    yellow.innerHTML = diag_Yellow[0][round];
+                    // ajoute le boutton pour changer le dialogue
+                    yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                    yellow.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                } else {
+                    // affiche le texte 1           
+                    yellow.innerHTML = diag_Yellow[1][round];
+                    // ajoute le boutton pour changer le dialogue
+                    yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                    yellow.style.cssText='visibility:visible;'
+                    inter.style.cssText='visibility:hidden;'
+                    bouteille_oxygene.style.cssText='visibility:hidden;'
+                }
             }
         }
     // inter with pink pnj
@@ -149,12 +202,18 @@ function interaction(event){
         if (map == grid_navigation){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
+                // affiche le texte 1           
                 white.innerHTML = diag_White[0][round];
                 // ajoute le boutton pour changer le dialogue
                 white.innerHTML += '<button id="buttonWhite" onclick="compteur()">Next</button>';
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
+        }
+    } else if (ligne == 7 && colonne == 5 && map == grid_kitchen){
+        inter.style.cssText='visibility:visible;'
+        if (event.code == 'KeyF'){
+            burgerBool = Boolean(true);
         }
     } else {
         black.style.cssText='visibility:hidden;'
@@ -173,6 +232,14 @@ function interaction(event){
 var emergency_button = document.getElementById("emergency_button");
 
 var pnj_dead = document.getElementById("pnj_dead");
+
+var oxygene = Boolean(false);
+
+// création bouteille oxygene
+var bouteille_oxygene = document.createElement("img")
+bouteille_oxygene.src = "pics/bouteille_oxygene.png"
+bouteille_oxygene.style.width = 90+"px";
+bouteille_oxygene.style.margin = 10+"px";
 
 // création pnj white
 var pnj_white = document.createElement("img");
@@ -222,6 +289,11 @@ pnj_black.style.zIndex = 4;
 var keyB = Boolean(false);
 console.log(keyB);
 
+// gestion du burger
+var burgerBool = Boolean(false);
+var burger = document.createElement("img");
+burger.src = "pics/burger.png";
+
 // ajout de la clé sur la map
 var key = document.createElement("img");
 key.src = "pics/key_card.png";
@@ -237,14 +309,11 @@ var inventaire = document.getElementById("blockInventaire");
 
 
 // ajout de la clé dans l'inventaire
-
 function collision(){
     if( colonne == key.style.gridColumnStart && ligne == key.style.gridRowStart && map == grid_central ){
         keyB = Boolean(true);
-
         return keyB;
     }
-
 }
 
 // changement de gif à image pour le player
@@ -359,6 +428,7 @@ function deplacement(event) {
                     map = grid_navigation;
                     ligne=7;
                     colonne=1;
+                    key.style.cssText='visibility:hidden;';
                 }
                 else {
                     alert("Il manque la clé");
@@ -437,12 +507,21 @@ function deplacement(event) {
         div.appendChild(pnj_dead);
         div.appendChild(emergency_button);
     }
+
+
     if (keyB == true){
         key.style.width = 100+"px";
         key.style.margin = 10+"px"
         inventaire.appendChild(key);
+    }
+    console.log(oxygene); 
+  
+    if (burgerBool == true){
+        burger.style.width = 100+"px";
+        burger.style.margin = 10+"px"
+        inventaire.appendChild(burger);
+    }
 
-    } 
 }
 
 // fonction du temps - 5 min

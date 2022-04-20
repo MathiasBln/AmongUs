@@ -7,10 +7,11 @@ let diag_Purple = [
         "il m'a l'air sussspect ",
         "J'ai dormi toute la nuit, j'ai trop la dalle, t'aurais pas un cassse croute pour moi ?",
         "Si tu m'apportes quelque chose a manger, j'aurais un indice pour toi ah ah ah !",
-        "Je te conssseille de faire un tour dans le garde-manger, c'est la sssalle en haut de la cuisine..."
     ],
     [
-        "Merci pour le burger",
+        "Merci pour le burger, voila ton indice",
+        "Je te conssseille de faire un tour dans le garde-manger, c'est la sssalle en haut de la cuisine",
+        "Une sssurprise t'attend..."
     ]
     
 ]
@@ -64,3 +65,4 @@ let diag_White = [
     
 
 ]
+
