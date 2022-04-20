@@ -20,7 +20,7 @@ function playAlarm(event) {
         soundBuzzer.currentTime = 0;
         soundBuzzer.volume = 0.1;
 
-        //Si le joueur est au bonne endroit, la boîte de dialogue s'affiche, sinon elle est cachée
+        //Si le joueur est au bon endroit, la boîte de dialogue s'affiche, sinon elle est cachée
         if (ligne == 7 && colonne == 6) {
             boite.style.cssText='visibility:visible;'
             if (start == " " || event.code =="Space" || event.keycode == 32) {
@@ -45,14 +45,14 @@ function compteur(){
                 round += 1;
                 // change le dialogue
                 purple.innerHTML = diag_Purple[1][round];
-                // ajoute le boutton pour changer de dialogue
+                // ajoute le bouton pour changer de dialogue
                 purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';    
             }
         } else if(round < (diag_Purple[0].length -1)){
             round += 1;
             // change le dialogue
             purple.innerHTML = diag_Purple[0][round];
-            // ajoute le boutton pour changer de dialogue
+            // ajoute le bouton pour changer de dialogue
             purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
         } 
     } else if (ligne == 7 && colonne == 6) {
@@ -62,24 +62,34 @@ function compteur(){
             round += 1;
             // change le dialogue
             black.innerHTML = diag_Black[0][round];
-            // ajoute le boutton pour changer de dialogue
+            // ajoute le bouton pour changer de dialogue
             black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';
         } 
     } else if(ligne == 4 && colonne == 7) {
+
+        // DIAG YELLOW
+        if (round < (diag_Yellow[0].length -1)){
+            round += 1;
+            // change le dialogue
+            yellow.innerHTML = diag_Yellow[0][round];
+            // ajoute le bouton pour changer de dialogue
+            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+        } 
+
         // pour ne pas dépasser la taille du tableau
         if (oxygene == false){
             if (round < (diag_Yellow[0].length -1)){
                 round += 1;
                 // change le dialogue
                 yellow.innerHTML = diag_Yellow[0][round];
-                // ajoute le boutton pour changer de dialogue
+                // ajoute le bouton pour changer de dialogue
                 yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
             } 
         }else if(round <(diag_Yellow[1].length-1)){
             round += 1;
             // change le dialogue
             yellow.innerHTML = diag_Yellow[1][round];
-            // ajoute le boutton pour changer de dialogue
+            // ajoute le bouton pour changer de dialogue
             yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
         }
 
@@ -89,7 +99,7 @@ function compteur(){
             round += 1;
             // change le dialogue
             pink.innerHTML = diag_Pink[0][round];
-            // ajoute le boutton pour changer de dialogue
+            // ajoute le bouton pour changer de dialogue
             pink.innerHTML += '<button id="buttonPink" onclick="compteur()">Next</button>';
         } 
     } else if(ligne == 3 && colonne == 8) {
@@ -98,7 +108,7 @@ function compteur(){
             round += 1;
             // change le dialogue
             white.innerHTML = diag_White[0][round];
-            // ajoute le boutton pour changer de dialogue
+            // ajoute le bouton pour changer de dialogue
             white.innerHTML += '<button id="buttonWhite" onclick="compteur()">Next</button>';
         } 
         inventaire.appendChild(bouteille_oxygene);
@@ -108,7 +118,11 @@ function compteur(){
 
 function interaction(event){
     const inter = document.querySelector('#inter'); 
-    const take = document.querySelector('#take'); 
+    const take = document.querySelector('#take');
+    const lit1 = document.querySelector('#lit1');  
+    const lit2 = document.querySelector('#lit2');
+    const lit3 = document.querySelector('#lit3');
+    const lit4 = document.querySelector('#lit4');
     const black = document.querySelector('#black'); 
     const purple = document.querySelector('#purple'); 
     const yellow = document.querySelector('#yellow'); 
@@ -203,7 +217,10 @@ function interaction(event){
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
-            // inter white burger
+
+        }
+  
+      // inter with burger         
     } else if (ligne == 6 && colonne == 5 && map == grid_kitchen){
         take.style.cssText='visibility:visible;'
         if (event.code == 'KeyF'){
@@ -213,6 +230,64 @@ function interaction(event){
             burger.style.margin = 10+"px"
             inventaire.appendChild(burger);
         }
+
+        // inter with lit1
+    } else if (ligne == 5 && colonne == 2 || ligne == 5 && colonne == 3 || ligne == 5 && colonne == 1){
+        if (map == grid_medbay){
+            find1.style.cssText='visibility:visible;'
+            if (event.code == 'KeyF'){    
+                lit1.style.cssText='visibility:visible;'
+                find1.style.cssText='visibility:hidden;'
+            }
+        }
+        // inter with lit2
+    }else if (ligne == 8 && colonne == 2 || ligne == 8 && colonne == 3 || ligne == 8 && colonne == 1){
+        if (map == grid_medbay){
+            find2.style.cssText='visibility:visible;'
+            if (event.code == 'KeyF'){    
+                lit2.style.cssText='visibility:visible;'
+                find2.style.cssText='visibility:hidden;'
+            }
+        }
+        // inter with lit3
+    }else if (ligne == 5 && colonne == 7 || ligne == 5 && colonne == 8 || ligne == 5 && colonne == 9){
+        if (map == grid_medbay){
+            find3.style.cssText='visibility:visible;'
+            if (event.code == 'KeyF'){    
+                lit3.style.cssText='visibility:visible;'
+                find3.style.cssText='visibility:hidden;'
+                inventaire.appendChild(knife);
+            }
+        }
+        // inter with lit4
+    }else if (ligne == 8 && colonne == 7 || ligne == 8 && colonne == 8 || ligne == 8 && colonne == 9){
+        if (map == grid_medbay){
+            find4.style.cssText='visibility:visible;'
+            if (event.code == 'KeyF'){    
+                lit4.style.cssText='visibility:visible;'
+                find4.style.cssText='visibility:hidden;'
+            }
+        }
+    } else {
+    black.style.cssText='visibility:hidden;'
+    purple.style.cssText='visibility:hidden;'
+    yellow.style.cssText='visibility:hidden;'
+    pink.style.cssText='visibility:hidden;'
+    white.style.cssText='visibility:hidden;'
+    inter.style.cssText='visibility:hidden'
+    take.style.cssText='visibility:hidden;'
+    find1.style.cssText='visibility:hidden;'
+    find2.style.cssText='visibility:hidden;'
+    find3.style.cssText='visibility:hidden;'
+    find4.style.cssText='visibility:hidden;'
+    lit1.style.cssText='visibility:hidden;'
+    lit2.style.cssText='visibility:hidden;'
+    lit3.style.cssText='visibility:hidden;'
+    lit4.style.cssText='visibility:hidden;'
+
+    round = 0;
+}
+
     } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
         porte.style.cssText='visibility:visible;';
     } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false){
@@ -229,6 +304,7 @@ function interaction(event){
         take.style.cssText='visibility:hidden;'
         round = 0;
     }
+
  
 }
 
@@ -293,6 +369,11 @@ pnj_black.style.zIndex = 4;
 // gestion de la clé
 var keyB = Boolean(false);
 console.log(keyB);
+// gestion du couteau
+var knife = document.createElement("img")
+knife.src = "pics/knife.png";
+knife.style.width = 100+"px";
+knife.style.height = 60+"px";
 
 // gestion du burger
 var burgerBool = Boolean(false);
@@ -361,7 +442,7 @@ function deplacement(event) {
     // gestion flèche du bas
     else if (touche == "ArrowDown") {
         document.getElementById("player").src="gif/walk.gif";
-        // gestion sorti grid
+        // gestion sortie grid
         if (ligne < 12) {
              // direction cafet à med
             if(map[ligne + 1][colonne] == "portemed"){
@@ -382,7 +463,7 @@ function deplacement(event) {
     // gestion flèche de gauche
     else if (touche == "ArrowLeft") {
         document.getElementById("player").src="gif/walkreverse.gif";
-        // gestion sorti grid
+        // gestion sortie grid
         if (colonne > 1) {
             // direction kitchen à cafet
             if (map[ligne][colonne - 1] == "portekitch_cafet"){
@@ -417,7 +498,7 @@ function deplacement(event) {
     // gestion flèche de droite
     else if (touche == "ArrowRight") {
         document.getElementById("player").src="gif/walk.gif";
-        // gestion sorti grid
+        // gestion sortie grid
         if (colonne < 12) {
             // direction cafet à kitchen
             if (map[ligne][colonne + 1] == "portekitch"){
@@ -464,7 +545,7 @@ function deplacement(event) {
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
 
-    // ajout ou non des PNJ sur les différentes map
+    // ajout ou non des PNJ sur les différentes maps
     if (map == grid_kitchen){
         key.remove();
         emergency_button.remove();

@@ -134,10 +134,19 @@ body {
 
 #inter{visibility: hidden;}
 #take{visibility: hidden;}
+#find1{visibility: hidden;}
+#find2{visibility: hidden;}
+#find3{visibility: hidden;}
+#find4{visibility: hidden;}
 #black{visibility: hidden;}
 #black2{visibility: hidden;}
 #purple{visibility: hidden;}
 #yellow{visibility: hidden;}
 #pink{visibility: hidden;}
 #white{visibility: hidden;}
+#lit1{visibility:hidden;}
+#lit2{visibility:hidden;}
+#lit3{visibility:hidden;}
+#lit4{visibility:hidden;}
 #door{visibility: hidden;}
+
