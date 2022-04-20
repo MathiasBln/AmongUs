@@ -36,6 +36,7 @@ function playAlarm(event) {
 let round = 0;
 
 function compteur(){
+    // DIAG PURPLE
     if (ligne == 10 && colonne == 8){
         if ( burgerBool == true ){
             if(round < (diag_Purple[1].length -1)){
@@ -54,8 +55,23 @@ function compteur(){
         } 
     } else if (ligne == 7 && colonne == 6) {
         // DIAG BLACK
+        // pour ne pas dépasser la taille du tableau
+        if (round < (diag_Black[0].length -1)){
+            round += 1;
+            // change le dialogue
+            black.innerHTML = diag_Black[0][round];
+            // ajoute le boutton pour changer de dialogue
+            black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';
+        } 
     } else if(ligne == 4 && colonne == 7) {
         // DIAG YELLOW
+        if (round < (diag_Yellow[0].length -1)){
+            round += 1;
+            // change le dialogue
+            yellow.innerHTML = diag_Yellow[0][round];
+            // ajoute le boutton pour changer de dialogue
+            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+        } 
         // pour ne pas dépasser la taille du tableau
         if (oxygene == false){
             if (round < (diag_Yellow[0].length -1)){
@@ -72,9 +88,16 @@ function compteur(){
             // ajoute le boutton pour changer de dialogue
             yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
         }
-        
+
     } else if(ligne == 8 && colonne == 4) {
         // DIAG PINK
+        if (round < (diag_Pink[0].length -1)){
+            round += 1;
+            // change le dialogue
+            pink.innerHTML = diag_Pink[0][round];
+            // ajoute le boutton pour changer de dialogue
+            pink.innerHTML += '<button id="buttonPink" onclick="compteur()">Next</button>';
+        } 
     } else if(ligne == 3 && colonne == 8) {
         // DIG WHITE
         if (round < (diag_White[0].length -1)){
@@ -103,6 +126,9 @@ function interaction(event){
         if (map == grid_kitchen){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
+                black.innerHTML = diag_Black[0][round];
+                // ajoute le boutton pour changer de dialogue
+                black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';    
                 black.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
@@ -136,6 +162,11 @@ function interaction(event){
         if (map == grid_central){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
+                yellow.innerHTML = diag_Yellow[0][round];
+                // ajoute le boutton pour changer le dialogue
+                yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                yellow.style.cssText='visibility:visible;'
+                inter.style.cssText='visibility:hidden;'
                 if(oxygene == false){
                     // affiche le texte 1           
                     yellow.innerHTML = diag_Yellow[0][round];
@@ -152,7 +183,6 @@ function interaction(event){
                     inter.style.cssText='visibility:hidden;'
                     bouteille_oxygene.style.cssText='visibility:hidden;'
                 }
-                
             }
         }
     // inter with pink pnj
@@ -160,6 +190,9 @@ function interaction(event){
         if (map == grid_central){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
+                pink.innerHTML = diag_Pink[0][round];
+                // ajoute le boutton pour changer le dialogue
+                pink.innerHTML += '<button id="buttonPink" onclick="compteur()">Next</button>';
                 pink.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
@@ -214,7 +247,7 @@ pnj_white.src = "pics/AmongUs_white.png";
 pnj_white.style.width = 60 + "px";
 pnj_white.style.gridColumnStart = 9;
 pnj_white.style.gridRowStart = 3;
-pnj_white.style.zIndex = 6;
+pnj_white.style.zIndex = 4;
 
 // création pnj violet
 var pnj_purple = document.createElement("img");
@@ -246,7 +279,7 @@ pnj_black.src = "pics/AmongUs_black.png";
 pnj_black.style.width = 65 + "px";
 pnj_black.style.gridColumnStart = 7;
 pnj_black.style.gridRowStart = 7;
-pnj_black.style.zIndex = 6;
+pnj_black.style.zIndex = 4;
 
 
 
