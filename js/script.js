@@ -32,8 +32,10 @@ function playAlarm(event) {
     }
 }
 
-
+let porte = document.getElementById("door")
 let round = 0;
+
+
 
 function compteur(){
     // DIAG PURPLE
@@ -64,6 +66,7 @@ function compteur(){
             black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';
         } 
     } else if(ligne == 4 && colonne == 7) {
+
         // DIAG YELLOW
         if (round < (diag_Yellow[0].length -1)){
             round += 1;
@@ -72,6 +75,7 @@ function compteur(){
             // ajoute le bouton pour changer de dialogue
             yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
         } 
+
         // pour ne pas dépasser la taille du tableau
         if (oxygene == false){
             if (round < (diag_Yellow[0].length -1)){
@@ -139,7 +143,7 @@ function interaction(event){
             }
         }
      // inter with purple pnj
-    }  else if(ligne == 10 && colonne == 8){
+    } else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){  
@@ -203,8 +207,7 @@ function interaction(event){
             }
         }
     // inter with white pnj
-    } else if(ligne == 3 && colonne == 8){
-        if (map == grid_navigation){
+    } else if(ligne == 3 && colonne == 8 && map == grid_navigation){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
                 // affiche le texte 1           
@@ -214,8 +217,10 @@ function interaction(event){
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
+
         }
-      // inter with burger  
+  
+      // inter with burger         
     } else if (ligne == 6 && colonne == 5 && map == grid_kitchen){
         take.style.cssText='visibility:visible;'
         if (event.code == 'KeyF'){
@@ -225,6 +230,7 @@ function interaction(event){
             burger.style.margin = 10+"px"
             inventaire.appendChild(burger);
         }
+
         // inter with lit1
     } else if (ligne == 5 && colonne == 2 || ligne == 5 && colonne == 3 || ligne == 5 && colonne == 1){
         if (map == grid_medbay){
@@ -281,6 +287,24 @@ function interaction(event){
 
     round = 0;
 }
+
+    } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
+        porte.style.cssText='visibility:visible;';
+    } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false){
+        cardShow.style.cssText="visibility:visible;";  
+    } else {
+        black.style.cssText='visibility:hidden;'
+        purple.style.cssText='visibility:hidden;'
+        yellow.style.cssText='visibility:hidden;'
+        pink.style.cssText='visibility:hidden;'
+        white.style.cssText='visibility:hidden;'      
+        porte.style.cssText='visibility:hidden;'
+        cardShow.style.cssText="visibility:hidden;"
+        inter.style.cssText='visibility:hidden;'
+        take.style.cssText='visibility:hidden;'
+        round = 0;
+    }
+
  
 }
 
@@ -364,7 +388,8 @@ key.style.gridColumnStart = 5;
 key.style.gridRowStart = 11;
 key.style.zIndex = 6;
 
-
+//jeu de la carte
+let cardShow = document.getElementById("canvas");
 
 var div = document.getElementById("grille");
 var inventaire = document.getElementById("blockInventaire");
@@ -486,15 +511,17 @@ function deplacement(event) {
             } else if (map[ligne][colonne + 1] == "portenav") {
                 // gestion clé
                 if (keyB == true){
-                    document.getElementById("mapimg").src="pics/navigation.png";
-                    map = grid_navigation;
-                    ligne=7;
-                    colonne=1;
-                    key.style.cssText='visibility:hidden;';
-                }
-                else {
-                    alert("Il manque la clé");
-                }         
+                    if (cardResult == true){
+                        document.getElementById("mapimg").src="pics/navigation.png";
+                        map = grid_navigation;
+                        ligne=7;
+                        colonne=1;
+                        }
+                        
+                } 
+                else{ 
+                  porte.innerHTML = "Il manque la carte"  
+                    }         
             // direction central à cafet
             } else if (map[ligne][colonne +1] == "portecent_cafet"){
                 document.getElementById("mapimg").src="pics/among_us_cafet.png";

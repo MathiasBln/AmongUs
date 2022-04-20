@@ -35,6 +35,16 @@ let diag_Yellow = [
         "ET OHHHH tu crois que j'ai que ca a faire, j'ai pas le temps de discuter avec toi",
         "Les bouteilles d’oxygene sont vides, je dois les recharger immediatement VA ME LES CHERCHER DANS NAVIGATION VITE !!!!!!!!"
     ],
+    [
+        "GREAT JOB",
+        "Bon ! je vais te dire, le rose la ... Hummm ! Je le sens pas",
+        "Il y a 1 heure, il faisait constamment des allers retours vers la cafet",
+        "Il affiche une tete extremement bizarre on dirait qu'il est angoisse",
+        "En tout cas, rester dans la meme piece que lui me donne la nausee",
+        "OH !",
+        "OOOUUR",
+        "*vomit* OOOOUUUAARRG *vomit*"
+    ]
     
 
 ]

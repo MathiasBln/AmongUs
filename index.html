@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
     <title>Among Us - Play</title>
 </head>
 <body>
@@ -27,9 +28,29 @@
             <div class="dialogue" id="lit4">Vous trouvez un frigidaire entier ?! Pink doit etre tres fort en rangement. </div>
             <div class="dialogue" id="black"></div>
             <div class="dialogue" id="purple"></div>
-            <div class="dialogue" id="yellow">yellow</div>
-            <div class="dialogue" id="pink">pink</div>
-            <div class="dialogue" id="white">white</div>
+            <div class="dialogue" id="yellow"></div>
+            <div class="dialogue" id="pink"></div>
+            <div class="dialogue" id="white"></div>
+            <div class="dialogue" id="door"></div>
+            <div id="canvas">
+                <div id="wrapper">
+                    <div id="reader" data-status="">
+                        <div class="top">
+                            <div class="screen">
+                                <div id="message"></div>
+                            </div>
+                            <div class="lights">
+                                <div class="light red"></div>
+                                <div class="light green"></div>
+                            </div>
+                        </div>
+                        <div id="card">
+                            <div id="photo"></div>
+                        </div>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="map">
@@ -50,6 +71,7 @@
     </div>
 
     <script src="js/dialogue.js"></script>
+    <script src='js/card.js'></script>
     <script src="js/mapping.js"></script>
     <script src="js/script.js"></script>
     <div id="box-audio">
