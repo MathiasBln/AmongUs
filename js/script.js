@@ -137,7 +137,7 @@ function interaction(event){
             }
         }
      // inter with purple pnj
-    }  else if(ligne == 10 && colonne == 8){
+    } else if(ligne == 10 && colonne == 8){
         if (map == grid_medbay){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){  
@@ -201,8 +201,7 @@ function interaction(event){
             }
         }
     // inter with white pnj
-    } else if(ligne == 3 && colonne == 8){
-        if (map == grid_navigation){
+    } else if(ligne == 3 && colonne == 8 && map == grid_navigation){
             inter.style.cssText='visibility:visible;'
             if (event.code == 'KeyF'){
                 // affiche le texte 1           
@@ -212,16 +211,7 @@ function interaction(event){
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
-        }
-    } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
-        porte.style.cssText='visibility:visible;';
-        
-    }
-    else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false)
-    {cardShow.style.cssText="visibility:visible;";}
-    else if (cardResult == true) {cardShow.style.cssText='visibility:hidden;'}
-    
-      // inter white burger  
+            // inter white burger
     } else if (ligne == 6 && colonne == 5 && map == grid_kitchen){
         take.style.cssText='visibility:visible;'
         if (event.code == 'KeyF'){
@@ -231,6 +221,10 @@ function interaction(event){
             burger.style.margin = 10+"px"
             inventaire.appendChild(burger);
         }
+    } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
+        porte.style.cssText='visibility:visible;';
+    } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false){
+        cardShow.style.cssText="visibility:visible;";  
     } else {
         black.style.cssText='visibility:hidden;'
         purple.style.cssText='visibility:hidden;'
@@ -238,8 +232,8 @@ function interaction(event){
         pink.style.cssText='visibility:hidden;'
         white.style.cssText='visibility:hidden;'      
         porte.style.cssText='visibility:hidden;'
-        cardShow.style.cssText="visibility:hidden;";
-        inter.style.cssText='visibility:hidden'
+        cardShow.style.cssText="visibility:hidden;"
+        inter.style.cssText='visibility:hidden;'
         take.style.cssText='visibility:hidden;'
         round = 0;
     }
