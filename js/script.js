@@ -48,7 +48,7 @@ function no(){
 let porte = document.getElementById("door")
 let round = 0;
 
-
+let buttonNext = '<button onclick="compteur()" style="margin-left:30px; height:25px; width:30px;">Next</button>'
 
 function compteur(){
     // DIAG PURPLE
@@ -59,14 +59,14 @@ function compteur(){
                 // change le dialogue
                 purple.innerHTML = diag_Purple[1][round];
                 // ajoute le bouton pour changer de dialogue
-                purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';    
+                purple.innerHTML += buttonNext;    
             }
         } else if(round < (diag_Purple[0].length -1)){
             round += 1;
             // change le dialogue
             purple.innerHTML = diag_Purple[0][round];
             // ajoute le bouton pour changer de dialogue
-            purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+            purple.innerHTML += buttonNext;
         } 
     } else if (ligne == 7 && colonne == 6) {
         // DIAG BLACK
@@ -76,7 +76,7 @@ function compteur(){
             // change le dialogue
             black.innerHTML = diag_Black[0][round];
             // ajoute le bouton pour changer de dialogue
-            black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';
+            black.innerHTML += buttonNext;
         } 
     } else if(ligne == 4 && colonne == 7) {
 
@@ -86,7 +86,7 @@ function compteur(){
             // change le dialogue
             yellow.innerHTML = diag_Yellow[0][round];
             // ajoute le bouton pour changer de dialogue
-            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+            yellow.innerHTML += buttonNext;
         } 
 
         // pour ne pas dépasser la taille du tableau
@@ -96,14 +96,14 @@ function compteur(){
                 // change le dialogue
                 yellow.innerHTML = diag_Yellow[0][round];
                 // ajoute le bouton pour changer de dialogue
-                yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                yellow.innerHTML += buttonNext;
             } 
         }else if(round <(diag_Yellow[1].length-1)){
             round += 1;
             // change le dialogue
             yellow.innerHTML = diag_Yellow[1][round];
             // ajoute le bouton pour changer de dialogue
-            yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+            yellow.innerHTML += buttonNext;
         }
 
     } else if(ligne == 8 && colonne == 4) {
@@ -113,7 +113,7 @@ function compteur(){
             // change le dialogue
             pink.innerHTML = diag_Pink[0][round];
             // ajoute le bouton pour changer de dialogue
-            pink.innerHTML += '<button id="buttonPink" onclick="compteur()">Next</button>';
+            pink.innerHTML += buttonNext;
         } 
     } else if(ligne == 3 && colonne == 8) {
         // DIG WHITE
@@ -122,7 +122,7 @@ function compteur(){
             // change le dialogue
             white.innerHTML = diag_White[0][round];
             // ajoute le bouton pour changer de dialogue
-            white.innerHTML += '<button id="buttonWhite" onclick="compteur()">Next</button>';
+            white.innerHTML += buttonNext;
         } 
         inventaire.appendChild(bouteille_oxygene);
         oxygene = Boolean(true);
@@ -150,7 +150,7 @@ function interaction(event){
             if (event.code == 'KeyF'){
                 black.innerHTML = diag_Black[0][round];
                 // ajoute le boutton pour changer de dialogue
-                black.innerHTML += '<button id="buttonBlack" onclick="compteur()">Next</button>';    
+                black.innerHTML += buttonNext;    
                 black.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
@@ -164,7 +164,7 @@ function interaction(event){
                     // change le dialogue
                     purple.innerHTML = diag_Purple[1][round];
                     // ajoute le boutton pour changer de dialogue
-                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.innerHTML += buttonNext;
                     purple.style.cssText='visibility:visible;'
                     inter.style.cssText='visibility:hidden;'
                     burger.style.cssText='visibility:hidden;'
@@ -172,7 +172,7 @@ function interaction(event){
                     // affiche le texte 1           
                     purple.innerHTML = diag_Purple[0][round];
                     // ajoute le boutton pour changer le dialogue
-                    purple.innerHTML += '<button id="buttonPurple" onclick="compteur()">Next</button>';
+                    purple.innerHTML += buttonNext;
                     purple.style.cssText='visibility:visible;'
                     inter.style.cssText='visibility:hidden;'
                 }         
@@ -186,21 +186,21 @@ function interaction(event){
             if (event.code == 'KeyF'){
                 yellow.innerHTML = diag_Yellow[0][round];
                 // ajoute le boutton pour changer le dialogue
-                yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                yellow.innerHTML += buttonNext;
                 yellow.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
                 if(oxygene == false){
                     // affiche le texte 1           
                     yellow.innerHTML = diag_Yellow[0][round];
                     // ajoute le boutton pour changer le dialogue
-                    yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                    yellow.innerHTML += buttonNext;
                     yellow.style.cssText='visibility:visible;'
                     inter.style.cssText='visibility:hidden;'
                 } else {
                     // affiche le texte 1           
                     yellow.innerHTML = diag_Yellow[1][round];
                     // ajoute le boutton pour changer le dialogue
-                    yellow.innerHTML += '<button id="buttonYellow" onclick="compteur()">Next</button>';
+                    yellow.innerHTML += buttonNext;
                     yellow.style.cssText='visibility:visible;'
                     inter.style.cssText='visibility:hidden;'
                     bouteille_oxygene.style.cssText='visibility:hidden;'
@@ -214,7 +214,7 @@ function interaction(event){
             if (event.code == 'KeyF'){
                 pink.innerHTML = diag_Pink[0][round];
                 // ajoute le boutton pour changer le dialogue
-                pink.innerHTML += '<button id="buttonPink" onclick="compteur()">Next</button>';
+                pink.innerHTML += buttonNext;
                 pink.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
@@ -226,7 +226,7 @@ function interaction(event){
                 // affiche le texte 1           
                 white.innerHTML = diag_White[0][round];
                 // ajoute le boutton pour changer le dialogue
-                white.innerHTML += '<button id="buttonWhite" onclick="compteur()">Next</button>';
+                white.innerHTML += buttonNext;
                 white.style.cssText='visibility:visible;'
                 inter.style.cssText='visibility:hidden;'
             }
@@ -342,7 +342,7 @@ pnj_pink.src = "pics/AmongUs_pink.png";
 pnj_pink.style.width = 60 + "px";
 pnj_pink.style.gridColumnStart = 3;
 pnj_pink.style.gridRowStart = 8;
-pnj_pink.style.zIndex = 6;
+pnj_pink.style.zIndex = 4;
 
 // création pnj jaune
 var pnj_yellow = document.createElement("img");
@@ -350,7 +350,7 @@ pnj_yellow.src = "pics/AmongUs_yellow.png";
 pnj_yellow.style.width = 60 + "px";
 pnj_yellow.style.gridColumnStart = 6;
 pnj_yellow.style.gridRowStart = 4;
-pnj_yellow.style.zIndex = 6;
+pnj_yellow.style.zIndex = 4;
 
 // création pnj noir
 var pnj_black = document.createElement("img");
