@@ -99,6 +99,25 @@ body {
     border-radius: 10px;
 }
 
+#blockEnd{
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 100%;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+#AmongUs{
+    height: 100px;
+}
+
+
 #blockHREF{
     display: flex;
     justify-content: space-around;
@@ -131,6 +150,8 @@ body {
 }
 
 #alarme{visibility: hidden;}
+#question{visibility: hidden;}
+
 
 #inter{visibility: hidden;}
 #take{visibility: hidden;}
