@@ -329,7 +329,7 @@ pnj_pink.src = "pics/AmongUs_pink.png";
 pnj_pink.style.width = 60 + "px";
 pnj_pink.style.gridColumnStart = 3;
 pnj_pink.style.gridRowStart = 8;
-pnj_pink.style.zIndex = 6;
+pnj_pink.style.zIndex = 4;
 
 // création pnj jaune
 var pnj_yellow = document.createElement("img");
@@ -337,7 +337,7 @@ pnj_yellow.src = "pics/AmongUs_yellow.png";
 pnj_yellow.style.width = 60 + "px";
 pnj_yellow.style.gridColumnStart = 6;
 pnj_yellow.style.gridRowStart = 4;
-pnj_yellow.style.zIndex = 6;
+pnj_yellow.style.zIndex = 4;
 
 // création pnj noir
 var pnj_black = document.createElement("img");

@@ -36,5 +36,18 @@ h1 {
 #deathdancegif {
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding-top: 50px;
+    padding-left: 170px;
+    width: 200px;
+    height: 200px;
+}
+#backdeath {
+    margin-left: 700px;
+    margin-right: 700px;
+    border-radius: 40%;
+    background-image: url(../pics/death_background.png); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 300px;
 }
