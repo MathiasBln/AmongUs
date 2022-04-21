@@ -1,0 +1,32 @@
+@font-face {
+    font-family: AmongUS;
+    src: url(../font/In\ your\ face\,\ joffrey!.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: AmongUS;
+}
+
+body {
+    background-color: #333;
+}
+
+h1 {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#AmongUs{
+    width: 175px;
+    margin-top: 150px;
+}
+
+#blockEnd{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
