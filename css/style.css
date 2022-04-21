@@ -99,6 +99,25 @@ body {
     border-radius: 10px;
 }
 
+#blockEnd{
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 100%;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+#AmongUs{
+    height: 100px;
+}
+
+
 #blockHREF{
     display: flex;
     justify-content: space-around;
@@ -130,6 +149,7 @@ body {
     grid-row: 11 / 12;
 }
 
+
 .dialoguePNJ{
     text-decoration: none;
     color: white;
@@ -147,8 +167,7 @@ body {
     grid-row: 11 / 12;
 }
 
-
-
+#question{visibility: hidden;}
 #alarme{visibility: hidden;}
 #inter{visibility: hidden;}
 #take{visibility: hidden;}
