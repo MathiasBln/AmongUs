@@ -13,6 +13,7 @@ const soundBuzzer = new Audio('sounds/Emergency_meeting.mp3');
 // fonction pour jouer l'alarme
 function playAlarm(event) {
     if (map == grid_cafet){
+        const question = document.querySelector('#question')
         const boite = document.querySelector('#alarme');
         let start = event.key;
         //On initie le son, en le mettant en pause, au début, et à un volume bas
@@ -25,11 +26,23 @@ function playAlarm(event) {
             boite.style.cssText='visibility:visible;'
             if (start == " " || event.code =="Space" || event.keycode == 32) {
                 soundBuzzer.play();
+                question.style.cssText='visibility:visible'
+                boite.style.cssText='visibility:hidden'
             }
         } else{
             boite.style.cssText='visibility:hidden'
+            question.style.cssText='visibility:hidden'
         }
     }
+}
+
+
+function yes(){
+    location.href = "vote.html";
+}
+
+function no(){
+    question.style.cssText='visibility:hidden'
 }
 
 let porte = document.getElementById("door")
