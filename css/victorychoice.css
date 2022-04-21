@@ -1,0 +1,23 @@
+body {
+    background-image:url("../pics/fond_victory.png");
+    background-size: cover;
+}
+@font-face {
+    font-family: AmongUS;
+    src: url(../font/In\ your\ face\,\ joffrey!.ttf);
+}
+
+#bouton {
+    margin-left: 1050px;
+    margin-top: 650px;
+}
+
+#monbouton, a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    
+    border: 2mm ridge white;
+    background-color: black;
+    padding: 20px;
+}
