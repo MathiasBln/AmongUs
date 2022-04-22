@@ -312,7 +312,17 @@ var emergency_button = document.getElementById("emergency_button");
 
 var pnj_dead = document.getElementById("pnj_dead");
 
+
+
+var plante = document.getElementById("plant");
+
+var o2 = document.getElementById("o2");
+
+
+
+
 var oxygene = Boolean(false);
+
 
 // création bouteille oxygene
 var bouteille_oxygene = document.createElement("img")
@@ -334,7 +344,7 @@ pnj_purple.src = "pics/AmongUs_purple.png";
 pnj_purple.style.width = 65 + "px";
 pnj_purple.style.gridColumnStart = 9;
 pnj_purple.style.gridRowStart = 10;
-pnj_purple.style.zIndex = 6;
+pnj_purple.style.zIndex = 4;
 
 // création pnj rose
 var pnj_pink = document.createElement("img");
@@ -367,11 +377,12 @@ pnj_black.style.zIndex = 4;
 // gestion de la clé
 var keyB = Boolean(false);
 console.log(keyB);
+
 // gestion du couteau
 var knife = document.createElement("img")
 knife.src = "pics/knife.png";
-knife.style.width = 100+"px";
-knife.style.height = 60+"px";
+knife.style.width = 150+"px";
+knife.style.height = 80+"px";
 
 // gestion du burger
 var burgerBool = Boolean(false);
@@ -385,6 +396,37 @@ key.style.width = 40+"px" ;
 key.style.gridColumnStart = 5;
 key.style.gridRowStart = 11;
 key.style.zIndex = 6;
+
+//                DECOR                   //
+
+// ajout de l'alien sur la map
+var alien = document.createElement("img");
+alien.src = "pics/alien.png";
+alien.style.gridColumnStart = 2;
+alien.style.gridRowStart = 8;
+alien.style.zIndex = 5;
+
+// ajout du scanner sur la map
+var scanner = document.createElement("img");
+scanner.src = "pics/scanner.png";
+scanner.style.gridColumnStart = 11;
+scanner.style.gridRowStart = 9;
+scanner.style.zIndex = 5;
+
+// ajout de la table sur la map
+var table = document.createElement("img");
+table.src = "pics/table.png";
+table.style.gridColumnStart = 5;
+table.style.gridRowStart = 11;
+table.style.zIndex = 6;
+
+// ajout de l'O2' sur la map
+var O2 = document.createElement("img");
+O2.src = "pics/O2.png";
+O2.style.height = 100+"px";
+O2.style.gridColumnStart = 10;
+O2.style.gridRowStart = 2;
+O2.style.zIndex = 6;
 
 //jeu de la carte
 let cardShow = document.getElementById("canvas");
@@ -405,13 +447,18 @@ function collision(){
 function immobile(event){
     let touche=event.key
     if (touche = " "){
-        document.getElementById("player").src="pics/idle.png";
+        if (idleLeft==false){
+            document.getElementById("player").src="pics/idle.png";
+         // si le joueur va à gauche son image change   
+        }else{
+            document.getElementById("player").src="pics/idle_left.png";
+        }
     } 
 }
     //on integre le message a la grille quand le joueur passe devant le bouton, on peut aussi mettre le message directement dans le html
     // et l'afficher ou le hide en fonction de la position peut etre ?
     
-
+var idleLeft = Boolean(false);
 
 // gestion déplacement
 function deplacement(event) {
@@ -461,6 +508,7 @@ function deplacement(event) {
     // gestion flèche de gauche
     else if (touche == "ArrowLeft") {
         document.getElementById("player").src="gif/walkreverse.gif";
+        idleLeft = Boolean(true);
         // gestion sortie grid
         if (colonne > 1) {
             // direction kitchen à cafet
@@ -496,6 +544,7 @@ function deplacement(event) {
     // gestion flèche de droite
     else if (touche == "ArrowRight") {
         document.getElementById("player").src="gif/walk.gif";
+        idleLeft=Boolean(false);
         // gestion sortie grid
         if (colonne < 12) {
             // direction cafet à kitchen
@@ -543,22 +592,32 @@ function deplacement(event) {
     player.style.gridColumn = colonne;
     player.style.gridRow = ligne;
 
-    // ajout ou non des PNJ sur les différentes maps
+    // ajout ou non des PNJ et des objets sur les différentes maps
     if (map == grid_kitchen){
         key.remove();
+        O2.remove();
+        plante.remove();
+        scanner.remove();
+        alien.remove();
         emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_purple.remove();
         pnj_yellow.remove();
         pnj_white.remove();
+        div.appendChild(table);
         div.appendChild(pnj_black);
     } else if(map == grid_central){
+        O2.remove();
+        plante.remove();
+        scanner.remove();
+        table.remove();
         emergency_button.remove();
         pnj_dead.remove();
         pnj_black.remove();
         pnj_white.remove();
         pnj_purple.remove();
+        div.appendChild(alien);
         div.appendChild(pnj_yellow);
         div.appendChild(pnj_pink);
         div.appendChild(key);
@@ -568,29 +627,44 @@ function deplacement(event) {
         }
     } else if(map == grid_medbay){
         key.remove();
+        O2.remove();
+        plante.remove();
+        alien.remove();
+        table.remove();
         emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_black.remove();
         pnj_yellow.remove();
         pnj_white.remove();
+        div.appendChild(scanner);
         div.appendChild(pnj_purple);
     } else if(map == grid_navigation){
         key.remove();
+        plante.remove();
+        scanner.remove();
+        alien.remove();
+        table.remove();
         emergency_button.remove();
         pnj_dead.remove();
         pnj_pink.remove();
         pnj_purple.remove();
         pnj_yellow.remove();
         pnj_black.remove();
+        div.appendChild(O2);
         div.appendChild(pnj_white);
     }else if(map == grid_cafet){
         key.remove();
+        O2.remove();
+        scanner.remove();
+        alien.remove();
+        table.remove();
         pnj_pink.remove();
         pnj_purple.remove();
         pnj_yellow.remove();
         pnj_black.remove();
         pnj_white.remove();
+        div.appendChild(plante);
         div.appendChild(pnj_dead);
         div.appendChild(emergency_button);
     }

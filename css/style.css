@@ -41,6 +41,14 @@ body {
     z-index: 5;
 }
 
+
+#plant {
+    grid-column-start: 4;
+    grid-row-start: 1;
+    z-index: 5;
+}
+
+
 #emergency_button{
     height:32px;
     grid-column-start: 6;
