@@ -278,12 +278,12 @@ function interaction(event){
                 find4.style.cssText='visibility:hidden;'
             }
         }
-    } else if(ligne == 10 && colonne == 10 && keyB == false || ligne == 11 && colonne == 10 && keyB == false){
+    } else if(ligne == 10 && colonne == 10 && keyB == false && map == grid_kitchen|| ligne == 11 && colonne == 10 && keyB == false && map == grid_kitchen){
         porte.style.cssText='visibility:visible;';
-    } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false|| ligne == 11 && colonne == 10 && keyB == true && cardResult == false){
+    } else if (ligne == 10 && colonne == 10 && keyB == true && cardResult == false && map == grid_kitchen || ligne == 11 && colonne == 10 && keyB == true && cardResult == false && map == grid_kitchen){
         cardShow.style.cssText="visibility:visible;";  
     } else {
-        black.style.cssText='visibility:hidden;'
+        black.style.cssText='visibility:hidden;' 
         purple.style.cssText='visibility:hidden;'
         yellow.style.cssText='visibility:hidden;'
         pink.style.cssText='visibility:hidden;'
