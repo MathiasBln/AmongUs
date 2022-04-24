@@ -36,7 +36,7 @@ function playAlarm(event) {
     }
 }
 
-
+// choix affichage question vote
 function yes(){
     location.href = "vote.html";
 }

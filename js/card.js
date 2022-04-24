@@ -1,3 +1,6 @@
+// Fonction pour gerer l'animation de la carte. (prit sur internet et un peux modifier)
+
+
 const card = document.getElementById('card');
 const reader = document.getElementById('reader');
 let active = false;
