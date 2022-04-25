@@ -34,11 +34,11 @@ Page pour mort du joueur et victoire
 
 ## Membres de l'équipe
 
-Raphael LOUISON
-Julien VERITE
-Idris ABDELLI
-Salma WADOUACHI
-Morgane DASSONVILLE
-Martin CLAVER
-Mathias BOUILLON
+- Raphael LOUISON
+- Julien VERITE
+- Idris ABDELLI
+- Salma WADOUACHI
+- Morgane DASSONVILLE
+- Martin CLAVER
+- Mathias BOUILLON
 
