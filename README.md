@@ -1,6 +1,6 @@
 # AmongUs
 
-https://mathiasbln.github.io/AmongUs/
+https://mathiasbln.github.io/AmongUs/menu/html
 
 ## Explications
 
